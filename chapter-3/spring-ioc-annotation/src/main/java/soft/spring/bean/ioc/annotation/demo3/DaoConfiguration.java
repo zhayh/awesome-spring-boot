@@ -1,0 +1,18 @@
+package soft.spring.bean.ioc.annotation.demo3;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * @author : zhayh
+ * @date : 2020-2-10 17:56
+ * @description :
+ */
+@Configuration
+public class DaoConfiguration {
+    // 使用@Bean定义没有被@component注解的普通java类
+    @Bean
+    CustomDao customDao() {
+        return new CustomDao();
+    }
+}
