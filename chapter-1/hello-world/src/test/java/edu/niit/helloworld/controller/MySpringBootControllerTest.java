@@ -2,11 +2,9 @@ package edu.niit.helloworld.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -18,12 +16,13 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
  * @description :
  */
 
-// 导入Spring测试框架
-@ExtendWith(SpringExtension.class)
+// 导入Spring测试框架，JUnit 5
 @SpringBootTest
 public class MySpringBootControllerTest {
     @Autowired
     private MySpringBootController controller;
+
+    // 发送http请求的模拟对象，桩对象
     private MockMvc mockMvc;
 
     @BeforeEach
