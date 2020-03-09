@@ -1,6 +1,7 @@
 package edu.niit.helloworld.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,7 +18,7 @@ public class HelloWorldController {
 
     // 带参数请求
     @GetMapping("/hello/{name}")
-    public String hello(String name) {
+    public String hello(@PathVariable(name = "name") String name) {
         return "Hello, " + name;
     }
 }
