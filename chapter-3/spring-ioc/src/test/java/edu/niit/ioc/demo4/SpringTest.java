@@ -12,14 +12,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringTest {
     @Test
     public void test1() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "applicationContext.xml");
         User user = (User) context.getBean("user");
         System.out.println(user);
     }
 
     @Test
     public void test2() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "applicationContext.xml");
         Person person = (Person) context.getBean("person");
         System.out.println(person);
     }

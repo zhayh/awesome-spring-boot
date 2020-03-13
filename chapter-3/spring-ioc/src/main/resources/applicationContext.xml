@@ -20,7 +20,7 @@
     <bean id="bean3" factory-bean="bean3Factory" factory-method="createBean3"/>
 
     <!-- 3. Bean的作用域设置 -->
-    <bean id="person" class="edu.niit.ioc.demo3.Person" scope="prototype"/>
+<!--    <bean id="person" class="edu.niit.ioc.demo3.Person" scope="prototype"/>-->
 
     <!-- 4. 属性注入的bean -->
     <!-- 4.1 Bean的构造方法的属性注入 -->
@@ -28,7 +28,7 @@
 <!--        <constructor-arg name="name" value="张三"/>-->
 <!--        <constructor-arg name="age" value="20"/>-->
 <!--    </bean>-->
-    <!-- 4.2 Bean的setter方法的简单属性注入 -->
+<!--    &lt;!&ndash; 4.2 Bean的setter方法的简单属性注入 &ndash;&gt;-->
 <!--    <bean id="person" class="edu.niit.ioc.demo4.Person">-->
 <!--        <property name="name" value="李四"/>-->
 <!--        <property name="age" value="21"/>-->
@@ -50,57 +50,57 @@
 <!--          p:name="王五" p:age="19" p:cat-ref="cat"/>-->
 
     <!-- 5. 使用SpEL的属性注入 -->
-    <bean id="category" class="edu.niit.ioc.demo4.Category">
-        <property name="name" value="#{'服装'}" />
-    </bean>
-    <bean id="productInfo" class="edu.niit.ioc.demo4.ProductInfo" />
-    <bean id="product" class="edu.niit.ioc.demo4.Product">
-        <property name="name" value="#{'男装'}" />
-        <property name="price" value="#{productInfo.getDiscountPrice()}" />
-        <property name="category" value="#{category}" />
-    </bean>
+<!--    <bean id="category" class="edu.niit.ioc.demo4.Category">-->
+<!--        <property name="name" value="#{'服装'}" />-->
+<!--    </bean>-->
+<!--    <bean id="productInfo" class="edu.niit.ioc.demo4.ProductInfo" />-->
+<!--    <bean id="product" class="edu.niit.ioc.demo4.Product">-->
+<!--        <property name="name" value="#{'男装'}" />-->
+<!--        <property name="price" value="#{productInfo.getDiscountPrice()}" />-->
+<!--        <property name="category" value="#{category}" />-->
+<!--    </bean>-->
 
     <!-- 6. 复杂类型的属性注入 -->
-    <bean id="collectionBean" class="edu.niit.ioc.demo5.CollectionBean">
-        <!-- 数组类型 -->
-        <property name="arrs">
-            <list>
-                <value>aaa</value>
-                <value>bbb</value>
-                <value>ccc</value>
-            </list>
-        </property>
-        <!-- List类型 -->
-        <property name="list">
-            <list>
-                <value>aaa</value>
-                <value>bbb</value>
-                <value>aaa</value>
-            </list>
-        </property>
-        <!-- Set类型 -->
-        <property name="set">
-            <set>
-                <value>aaa</value>
-                <value>bbb</value>
-                <value>aaa</value>
-            </set>
-        </property>
-        <!-- Map类型 -->
-        <property name="map">
-            <map>
-                <entry key="a" value="aaa" />
-                <entry key="b" value="bbb" />
-                <entry key="c" value="ccc" />
-            </map>
-        </property>
-        <!-- Properties类型 -->
-        <property name="properties">
-            <props>
-                <prop key="aaa">aaa</prop>
-                <prop key="bbb">bbb</prop>
-                <prop key="ccc">ccc</prop>
-            </props>
-        </property>
-    </bean>
+<!--    <bean id="collectionBean" class="edu.niit.ioc.demo5.CollectionBean">-->
+<!--        &lt;!&ndash; 数组类型 &ndash;&gt;-->
+<!--        <property name="arrs">-->
+<!--            <list>-->
+<!--                <value>aaa</value>-->
+<!--                <value>bbb</value>-->
+<!--                <value>ccc</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        &lt;!&ndash; List类型 &ndash;&gt;-->
+<!--        <property name="list">-->
+<!--            <list>-->
+<!--                <value>aaa</value>-->
+<!--                <value>bbb</value>-->
+<!--                <value>aaa</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        &lt;!&ndash; Set类型 &ndash;&gt;-->
+<!--        <property name="set">-->
+<!--            <set>-->
+<!--                <value>aaa</value>-->
+<!--                <value>bbb</value>-->
+<!--                <value>aaa</value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        &lt;!&ndash; Map类型 &ndash;&gt;-->
+<!--        <property name="map">-->
+<!--            <map>-->
+<!--                <entry key="a" value="aaa" />-->
+<!--                <entry key="b" value="bbb" />-->
+<!--                <entry key="c" value="ccc" />-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        &lt;!&ndash; Properties类型 &ndash;&gt;-->
+<!--        <property name="properties">-->
+<!--            <props>-->
+<!--                <prop key="aaa">aaa</prop>-->
+<!--                <prop key="bbb">bbb</prop>-->
+<!--                <prop key="ccc">ccc</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
 </beans>
