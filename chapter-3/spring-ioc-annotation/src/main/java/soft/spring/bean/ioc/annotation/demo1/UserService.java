@@ -19,9 +19,9 @@ public class UserService {
     @Value("米饭")
     private String sth;
 
-//    @Autowired(required = true)
-//    @Qualifier("userDao1")
-    @Resource(name = "userDao1")
+    @Autowired(required = true)
+    @Qualifier("userDao1")
+//    @Resource(name = "userDao1")
     private UserDao userDao;
 
     public String sayHello(String name) {
