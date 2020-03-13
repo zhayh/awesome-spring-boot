@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author : zhayh
  * @date : 2020-2-10 17:56
- * @description :
+ * @description : 对于没有注解的普通Java类，配合使用@Configuration注解才能被IoC容器识别
  */
 @Configuration
 public class DaoConfiguration {
