@@ -6,11 +6,12 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd">
-    <!-- 开启注解扫描 -->
+    <!-- 激活注解扫描特性 -->
+    <context:annotation-config />
+    <!-- 扫描包被@Component或其派生注解标记的类，将它们注册为Spring Bean-->
     <context:component-scan base-package="soft.spring.bean.ioc.annotation" />
 
     <!-- 混合使用xml方式与注解方式 -->
-    <context:annotation-config />
     <bean id="productService" class="soft.spring.bean.ioc.annotation.demo4.ProductService" />
     <bean id="productDao" class="soft.spring.bean.ioc.annotation.demo4.ProductDao" />
     <bean id="categoryDao" class="soft.spring.bean.ioc.annotation.demo4.CategoryDao" />
