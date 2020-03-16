@@ -1,5 +1,6 @@
 package edu.niit.springboot.bootstrap;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * @date : 2020-3-16 19:33
  * @description : Spring 应用事件引导类
  */
+@SpringBootApplication
 public class SpringApplicationEventBootstrap {
     public static void main(String[] args) {
         // 创建上下文
