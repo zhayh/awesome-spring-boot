@@ -2,6 +2,7 @@ package soft.spring.bean.ioc.annotation.demo1;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,7 @@ import java.util.Map;
 @Data
 @Component
 @PropertySource({"classpath:value.properties"})
+//@ConfigurationProperties(prefix = "user")  // 只能从默认的properties文件获取
 public class ValueDemo {
     @Value("${user.fullName}")
     private String userName;

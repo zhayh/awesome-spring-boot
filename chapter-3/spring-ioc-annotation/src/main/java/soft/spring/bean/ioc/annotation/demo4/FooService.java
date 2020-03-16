@@ -17,10 +17,12 @@ public class FooService {
     @Autowired
     private FooFormatter fooFormatter;
     // 构造方法注入
+    // @Autowired
     public FooService(FooFormatter fooFormatter) {
         this.fooFormatter = fooFormatter;
     }
     // setter方法注入
+    // @Autowired
     public void setFooFormatter(FooFormatter fooFormatter) {
         this.fooFormatter = fooFormatter;
     }

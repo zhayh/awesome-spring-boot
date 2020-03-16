@@ -13,15 +13,14 @@ import javax.annotation.Resource;
  * @description : Spring的Bean的注解方式
  */
 
-@Service("userService")
+@Service
 public class UserService {
     // 指定默认值
     @Value("米饭")
     private String sth;
 
-    @Autowired(required = true)
-    @Qualifier("userDao1")
-//    @Resource(name = "userDao1")
+//    @Autowired(required = true)
+    @Resource
     private UserDao userDao;
 
     public String sayHello(String name) {
