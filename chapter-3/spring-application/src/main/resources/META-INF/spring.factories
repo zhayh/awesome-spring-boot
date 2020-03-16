@@ -1,0 +1,9 @@
+# Initializers
+org.springframework.context.ApplicationContextInitializer=\
+edu.niit.springboot.context.AfterApplicationContextInitializer,\
+edu.niit.springboot.context.HelloWorldApplicationContextInitializer
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+edu.niit.springboot.listener.AfterApplicationListener,\
+edu.niit.springboot.listener.HelloWorldApplicationListener
