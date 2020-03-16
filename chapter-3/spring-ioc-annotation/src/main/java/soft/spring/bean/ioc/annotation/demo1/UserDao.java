@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @description :
  */
 
-@Repository("userDao1")
+@Repository
 public class UserDao {
     public void save() {
         System.out.println("UserDao中保存用户......");
