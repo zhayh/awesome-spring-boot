@@ -14,7 +14,7 @@
         <property name="proxyInterfaces" value="soft.spring.aop.demo3.StudentDao" />
         <!-- 采用拦截的名称 -->
         <property name="interceptorNames" value="myBeforeAdvice" />
-<!--        &lt;!&ndash; 强制使用CGLib &ndash;&gt;-->
+        <!-- 强制使用CGLib -->
 <!--        <property name="optimize" value="true" />-->
     </bean>
 </beans>

@@ -16,10 +16,9 @@ import javax.annotation.Resource;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:applicationContext2.xml")
 public class SpringTest {
-//    @Resource(name="customerDao")
-    @Resource(name = "customerDaoProxy")
+//    @Resource(name="customerDao")  //直接调用目标类方法
+    @Resource(name = "customerDaoProxy")  // 通过代理调用
     private CustomerDao customerDao;
-
     @Test
     public void test1() {
         customerDao.find();
@@ -27,5 +26,4 @@ public class SpringTest {
         customerDao.update();
         customerDao.delete();
     }
-
 }

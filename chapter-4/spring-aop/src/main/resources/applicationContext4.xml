@@ -13,12 +13,12 @@
     <!-- 配置切面 -->
     <bean id="myBeforeAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor" >
         <!-- pattern配置正则表达式，.任意字符 *任意次数-->
-        <property name="pattern" value="soft\.spring\.aop\.demo6\.StudentDao\.update" />
+        <property name="pattern" value="soft.spring.aop.demo6.StudentDao.update" />
         <property name="advice" ref="myBeforeAdvice" />
     </bean>
     <bean id="myAroundAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor" >
         <!-- pattern配置正则表达式，.任意字符 *任意次数-->
-        <property name="pattern" value="soft\.spring\.aop\.demo6\.CustomerDao\.save" />
+        <property name="pattern" value="soft.spring.aop.demo6.CustomerDao.save" />
         <property name="advice" ref="myAroundAdvice" />
     </bean>
 
