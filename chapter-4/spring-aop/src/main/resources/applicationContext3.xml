@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 配置目标类 -->
+    <bean id="studentDao" class="soft.spring.aop.demo6.StudentDaoImpl" />
+    <bean id="customerDao" class="soft.spring.aop.demo6.CustomerDao" />
+
+    <!-- 配置增强 -->
+    <bean id="myBeforeAdvice" class="soft.spring.aop.demo6.MyBeforeAdvice" />
+    <bean id="myAroundAdvice" class="soft.spring.aop.demo6.MyAroundAdvice" />
+
+    <!-- 配置自动代理 -->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator" >
+        <property name="beanNames" value="*Dao" />
+        <property name="interceptorNames" value="myAroundAdvice,myBeforeAdvice" />
+    </bean>
+</beans>
