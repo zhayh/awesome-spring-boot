@@ -74,8 +74,10 @@ public class ApiResultConfig {
             } else if(body instanceof ErrorCode) {
                 ErrorCode errorCode = (ErrorCode) body;
                 result =  new ApiResult<>(errorCode.getCode(), errorCode.getMsg(), "");
-            } else {
+            } else if(body instanceof Message){
                 result = new ApiResult<>(200, "成功", body);
+            } else {
+                result = new ApiResult<>(200, "", body);
             }
             return result;
         }
