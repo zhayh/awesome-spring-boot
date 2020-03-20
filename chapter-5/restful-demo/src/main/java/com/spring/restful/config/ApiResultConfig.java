@@ -16,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.reflect.AnnotatedElement;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -74,7 +75,7 @@ public class ApiResultConfig {
             } else if(body instanceof ErrorCode) {
                 ErrorCode errorCode = (ErrorCode) body;
                 result =  new ApiResult<>(errorCode.getCode(), errorCode.getMsg(), "");
-            } else if(body instanceof Message){
+            } else if(body instanceof Message || body instanceof ArrayList){
                 result = new ApiResult<>(200, "成功", body);
             } else {
                 result = new ApiResult<>(200, "", body);
