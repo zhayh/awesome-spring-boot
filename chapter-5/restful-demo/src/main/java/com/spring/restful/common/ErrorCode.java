@@ -1,7 +1,5 @@
 package com.spring.restful.common;
 
-import lombok.Data;
-
 /**
  * @author : zhayh
  * @date : 2020-3-20 14:02
@@ -10,19 +8,16 @@ import lombok.Data;
 
 public enum ErrorCode {
     SUCCESS(200, "成功"),
-    NO_PERMISSION(211,"权限不足"),
-    SERVER_ERROR(10000,"服务器异常"),
-    AUTH_ERROR(10001,"认证失败"),
-    PARAMS_ERROR(10002,"参数错误"),
-    JSON_PARSE_ERROR(10003,"Json解析错误"),
-    ILLEAGAL_STRING(15001,"非法字符串"),
-    UNKNOW_ERROR(16000,"未知错误")
-    ;
+    PARAM_ERROR(100, "请求参数有误"),
+    AUTH_ERROR(101, "未授权"),
+    FORBIDEN_ERROR(102, "禁止访问"),
+    URL_ERROR(103, "请求路径不存在"),
+    SERVER_ERROR(104, "服务器内部错误");
 
     private int code;
     private String msg;
 
-    ErrorCode(int code,String msg){
+    ErrorCode(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
