@@ -1,7 +1,7 @@
-package com.spring.restful.repository.impl;
+package com.spring.api.swagger.repository.impl;
 
-import com.spring.restful.repository.MessageRepository;
-import com.spring.restful.pojo.Message;
+import com.spring.api.swagger.pojo.Message;
+import com.spring.api.swagger.repository.MessageRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

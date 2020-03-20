@@ -1,7 +1,6 @@
-package com.spring.restful.repository;
+package com.spring.api.swagger.repository;
 
-
-import com.spring.restful.pojo.Message;
+import com.spring.api.swagger.pojo.Message;
 
 import java.util.List;
 

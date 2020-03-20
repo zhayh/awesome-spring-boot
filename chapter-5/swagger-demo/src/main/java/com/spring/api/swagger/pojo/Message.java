@@ -1,5 +1,6 @@
-package com.spring.restful.pojo;
+package com.spring.api.swagger.pojo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,6 +11,7 @@ import lombok.Data;
  */
 
 @Data
+@ApiModel(value = "消息对象")
 public class Message {
     private Long id;
     private String text;
