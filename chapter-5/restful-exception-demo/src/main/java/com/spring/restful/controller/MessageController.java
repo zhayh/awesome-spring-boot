@@ -73,7 +73,7 @@ public class MessageController {
     }
 
     @GetMapping("/message/{id}")
-    public ResponseEntity<Message> get(@RequestParam Long id) {
+    public ResponseEntity<Message> get(@PathVariable("id") Long id) {
         Message msg = this.messageService.findOne(id);
         if (msg != null) {
             return ResponseEntity.ok(msg);
