@@ -1,13 +1,13 @@
 #swagger 配置
 swagger:
-  title: API示例
-  desc: 基于springBoot编写的RESful-API
-  version: 0.0.1.SNAPSHOT
-  termsOfServiceUrl: javascript:void(0)
+  title: 消息管理
+  desc: 消息管理 API 操作文档
+  version: 1.0
+  termsOfServiceUrl: http://localhost:8080
   license: Apache 2.0
   licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
   basePackage: com.spring.api.swagger.controller
   groupName: 消息管理API
-  contactName: zhayh
+  contactName: niit
   contactUrl: https://github.com/zhayh/awesome-spring-boot.git
   contactEmail: zhayh@niit.edu.com

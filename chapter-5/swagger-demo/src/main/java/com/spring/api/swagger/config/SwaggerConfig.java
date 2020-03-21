@@ -44,15 +44,6 @@ public class SwaggerConfig {
     private String contactUrl;
     private String contactEmail;
 
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful API")
-                .description("rest api 文档构建利器")
-                .termsOfServiceUrl("https://github.com/zhayh/awesome-spring-boot.git")
-                .version("1.0")
-                .build();
-    }
     @Bean
     public Docket swaggerApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -67,6 +58,18 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage(basePackage))
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
+                .build();
+    }
+    /**
+     * 配置页面展示的基本信息：标题、描述、版本、服务条款、联系方式等
+     */
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("消息管理")
+                .description("消息管理 API 操作文档")
+                .termsOfServiceUrl("http://localhost:8080")
+                .contact(new Contact("niit", "http://www.niit.com", "admin@niit.com"))
+                .version("1.0")
                 .build();
     }
 
