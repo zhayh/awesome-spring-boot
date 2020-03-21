@@ -1,5 +1,4 @@
-package com.spring.restful.repository;
-
+package com.spring.restful.service;
 
 import com.spring.restful.pojo.Message;
 
@@ -7,10 +6,10 @@ import java.util.List;
 
 /**
  * @author : zhayh
- * @Date : 2020-2-18 09:09
- * @Description: Message的数据访问接口
+ * @date : 2020-3-21 11:23
+ * @description : 消息服务接口
  */
-public interface MessageRepository {
+public interface MessageService {
     List<Message> findAll();
 
     Message findOne(Long id);

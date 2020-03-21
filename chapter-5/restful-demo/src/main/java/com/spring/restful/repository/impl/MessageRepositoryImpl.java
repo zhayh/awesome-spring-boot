@@ -1,7 +1,7 @@
 package com.spring.restful.repository.impl;
 
-import com.spring.restful.repository.MessageRepository;
 import com.spring.restful.pojo.Message;
+import com.spring.restful.repository.MessageRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

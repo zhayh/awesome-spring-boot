@@ -1,7 +1,7 @@
 package com.spring.restful.config;
 
-import com.spring.restful.common.ApiResult;
-import com.spring.restful.common.ErrorCode;
+import com.spring.restful.common.ExceptionType;
+import com.spring.restful.common.Result;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.reflect.AnnotatedElement;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -20,8 +19,8 @@ import java.util.Arrays;
  * @description : 全局统一响应返回码的处理
  */
 
-@RestControllerAdvice("com.spring.restful.controller")
-public class ApiResultResponseAdvice implements ResponseBodyAdvice<Object> {
+//@RestControllerAdvice("com.spring.restful.controller")
+public class ResultResponseAdvice implements ResponseBodyAdvice<Object> {
 
     private static final Class[] annos = {
             RequestMapping.class,
@@ -62,18 +61,18 @@ public class ApiResultResponseAdvice implements ResponseBodyAdvice<Object> {
                                   ServerHttpResponse response) {
         Object result = null;
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
-        if (body instanceof ApiResult || body instanceof Byte || body instanceof String) {
+        if (body instanceof Result || body instanceof Byte || body instanceof String) {
             result = body;
-        } else if (body instanceof ErrorCode) {
-            ErrorCode errorCode = (ErrorCode) body;
-            result = new ApiResult<>(errorCode.getCode(), errorCode.getMsg(), "");
+        } else if (body instanceof ExceptionType) {
+            ExceptionType errorCode = (ExceptionType) body;
+            result = Result.fail(errorCode.getCode(), errorCode.getMsg(), "");
         } else {
             result = getWrapperResponse(request, body);
         }
         return result;
     }
 
-    private ApiResult<Object> getWrapperResponse(ServerHttpRequest request, Object data) {
-        return new ApiResult<>(ErrorCode.SUCCESS.getCode(), ErrorCode.SUCCESS.getMsg(), data);
+    private Result<Object> getWrapperResponse(ServerHttpRequest request, Object data) {
+        return Result.success(data);
     }
 }

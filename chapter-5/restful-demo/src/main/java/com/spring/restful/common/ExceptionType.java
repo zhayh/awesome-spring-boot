@@ -1,23 +1,25 @@
 package com.spring.restful.common;
 
+import lombok.Data;
+
 /**
  * @author : zhayh
  * @date : 2020-3-20 14:02
- * @description : 错误码定义
+ * @description : 异常错误码定义
  */
-
-public enum ErrorCode {
+public enum ExceptionType {
+    //系统基本码
     SUCCESS(200, "成功"),
-    PARAM_ERROR(100, "请求参数有误"),
-    AUTH_ERROR(101, "未授权"),
-    FORBIDEN_ERROR(102, "禁止访问"),
-    URL_ERROR(103, "请求路径不存在"),
-    SERVER_ERROR(104, "服务器内部错误");
+    USER_INPUT_ERROR(400,"用户输入异常"),
+    SYSTEM_ERROR (500,"系统服务异常"),
+    NOT_FOUND_ERROR (404,"没找到"),
+    OTHER_ERROR(999,"其他未知异常"),
+    ;
 
     private int code;
     private String msg;
 
-    ErrorCode(int code, String msg) {
+    ExceptionType(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }

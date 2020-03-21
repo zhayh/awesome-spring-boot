@@ -1,8 +1,9 @@
 package com.spring.restful.controller;
 
 import com.spring.restful.pojo.Message;
-import com.spring.restful.repository.MessageRepository;
+import com.spring.restful.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,35 +16,45 @@ import java.util.List;
 @RestController
 public class MessageController {
     @Autowired
-    private MessageRepository repository;
+    private MessageService messageService;
 
     @GetMapping("/message")
-    public List<Message> list() {
-        return this.repository.findAll();
+    public ResponseEntity<List<Message>> list() {
+        List<Message> list = this.messageService.findAll();
+        if (!list.isEmpty()) {
+            return ResponseEntity.ok(list);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
 
     @PostMapping("/message")
-    public Message create(Message message) {
-        return this.repository.save(message);
+    public ResponseEntity<Message> create(Message message) {
+        Message msg = this.messageService.save(message);
+        return ResponseEntity.ok(msg);
     }
 
     @PutMapping("/message")
-    public Message modify(Message message) {
-        return this.repository.update(message);
+    public ResponseEntity<Message> modify(Message message) {
+        Message msg = this.messageService.update(message);
+        return ResponseEntity.ok(msg);
     }
 
     @PatchMapping("/message/text")
-    public Message patch(Message message) {
-        return this.repository.updateText(message);
+    public ResponseEntity<Message> patch(Message message) {
+        Message msg = this.messageService.updateText(message);
+        return ResponseEntity.ok(msg);
     }
 
     @GetMapping("/message/{id}")
-    public Message get(@PathVariable("id") Long id) {
-        return this.repository.findOne(id);
+    public ResponseEntity<Message> get(@RequestParam Long id) {
+        Message msg = this.messageService.findOne(id);
+        return ResponseEntity.ok(msg);
     }
 
     @DeleteMapping("/message/{id}")
-    public void delete(@PathVariable("id") Long id) {
-        this.repository.delete(id);
+    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+        this.messageService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
