@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap-theme.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="text-center myclass container">
+    <h2>Spring Boot MVC项目部署演示</h2>
+    <div class="well text-left text-primary">
+        本项目使用Spring boot 2.0开发，包括两个控制器。
+        <br/>MVC控制器使用Thymeleaf视图引擎开发，REST
+        控制器返回Coffee对象生成的json字符串。<br/>
+        为了演示静态资源和路径问题，示例使用webjars引入web前端库bootstrap 3.3.7，<br/>
+        并且手工编写css文件，并将其样式类应用于网页中。
+    </div>
+
+    <a class="btn btn-primary" href="mvc/index">访问MVC控制器</a>
+    <a class="btn btn-primary" href="api/hello">访问REST控制器</a>
+</body>
+</html>

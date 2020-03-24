@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域请求</title>
+    <script src="jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <input type="button" value="get" onclick="getData()">
+    <input type="button" value="put" onclick="putData()">
+    <script>
+        function getData() {
+            $.get("http://localhost:8080/doget", function(msg) {
+                $('#app').html(msg);
+            })
+        }
+        function putData() {
+            $.ajax({
+                type: 'put',
+                url: "http://localhost:8080/doput",
+                success: function(msg) {
+                    $('#app').html(msg);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
