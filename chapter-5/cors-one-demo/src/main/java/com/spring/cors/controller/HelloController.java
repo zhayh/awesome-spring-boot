@@ -1,6 +1,8 @@
 package com.spring.cors.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,9 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @description :
  */
 @RestController
+//@CrossOrigin(origins = "http://localhost:8081")
 public class HelloController {
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello cors!";
+    @GetMapping("/doget")
+    public String doGet() {
+        return "get 请求";
+    }
+    @PutMapping("/doput")
+    public String doPut() {
+        return "put 请求";
     }
 }
