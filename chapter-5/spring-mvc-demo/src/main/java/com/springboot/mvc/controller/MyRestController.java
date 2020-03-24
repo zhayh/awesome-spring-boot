@@ -1,8 +1,7 @@
-package soft.spring.mvc.demo.controller;
+package com.springboot.mvc.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import soft.spring.mvc.demo.model.Coffee;
 
 /**
  * @author : zhayh
@@ -14,7 +13,7 @@ import soft.spring.mvc.demo.model.Coffee;
 @RequestMapping("/api")
 public class MyRestController {
     @RequestMapping("/hello")
-    public Coffee get() {
-        return Coffee.create();
+    public String get() {
+        return "Hello Spring Boot";
     }
 }
