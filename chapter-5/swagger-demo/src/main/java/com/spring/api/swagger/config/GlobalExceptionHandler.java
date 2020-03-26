@@ -1,9 +1,8 @@
-package com.spring.restful.config;
+package com.spring.api.swagger.config;
 
-import com.spring.restful.common.ErrorResponseEntity;
-import com.spring.restful.common.ExceptionType;
-import com.spring.restful.exception.CustomException;
-import lombok.extern.slf4j.Slf4j;
+import com.spring.api.swagger.common.ErrorResponseEntity;
+import com.spring.api.swagger.common.ExceptionType;
+import com.spring.api.swagger.exception.CustomException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

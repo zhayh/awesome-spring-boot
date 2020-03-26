@@ -1,4 +1,4 @@
-package com.spring.restful.common;
+package com.spring.api.swagger.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,6 @@ import lombok.NonNull;
 public class Result<T> {
     private int code = ExceptionType.SUCCESS.getCode();
     private String message = ExceptionType.SUCCESS.getMsg();
-    @NonNull
     private T data;
 
     public static Result<Object> success() {

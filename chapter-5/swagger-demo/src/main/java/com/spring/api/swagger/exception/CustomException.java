@@ -1,6 +1,6 @@
-package com.spring.restful.exception;
+package com.spring.api.swagger.exception;
 
-import com.spring.restful.common.ExceptionType;
+import com.spring.api.swagger.common.ExceptionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

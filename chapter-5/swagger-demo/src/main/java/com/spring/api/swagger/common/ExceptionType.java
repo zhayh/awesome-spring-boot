@@ -1,6 +1,4 @@
-package com.spring.restful.common;
-
-import lombok.Data;
+package com.spring.api.swagger.common;
 
 /**
  * @author : zhayh

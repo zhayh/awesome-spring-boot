@@ -1,9 +1,9 @@
-package com.spring.restful.service.impl;
+package com.spring.api.swagger.service.impl;
 
-import com.spring.restful.exception.CustomException;
-import com.spring.restful.pojo.Message;
-import com.spring.restful.repository.MessageRepository;
-import com.spring.restful.service.MessageService;
+import com.spring.api.swagger.exception.CustomException;
+import com.spring.api.swagger.pojo.Message;
+import com.spring.api.swagger.repository.MessageRepository;
+import com.spring.api.swagger.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
-package com.spring.restful.service;
+package com.spring.api.swagger.service;
 
-import com.spring.restful.exception.CustomException;
-import com.spring.restful.pojo.Message;
+
+import com.spring.api.swagger.exception.CustomException;
+import com.spring.api.swagger.pojo.Message;
 
 import java.util.List;
 

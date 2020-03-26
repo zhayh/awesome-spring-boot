@@ -1,7 +1,8 @@
-package com.spring.restful.common;
+package com.spring.api.swagger.common;
 
-import lombok.*;
-import org.springframework.http.HttpStatus;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author : zhayh
