@@ -14,7 +14,7 @@ import java.lang.reflect.Modifier;
  * @description : Gson自定义自动转换类
  */
 
-@Configuration
+//@Configuration
 public class GsonConfig {
     @Bean
     GsonHttpMessageConverter gsonHttpMessageConverter() {

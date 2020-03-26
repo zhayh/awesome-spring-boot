@@ -1,9 +1,8 @@
-package com.spring.restful.common;
+package com.spring.restful.custom.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 /**
  * @author : zhayh

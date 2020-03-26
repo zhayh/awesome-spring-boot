@@ -1,7 +1,7 @@
-package com.spring.restful.config;
+package com.spring.restful.custom.config;
 
-import com.spring.restful.common.ExceptionType;
-import com.spring.restful.common.Result;
+import com.spring.restful.custom.common.ExceptionType;
+import com.spring.restful.custom.common.Result;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -19,7 +19,7 @@ import java.util.Arrays;
  * @description : 全局统一响应返回码的处理
  */
 
-@RestControllerAdvice("com.spring.restful.controller")
+@RestControllerAdvice("com.spring.restful.custom.controller")
 public class ResultResponseAdvice implements ResponseBodyAdvice<Object> {
 
     private static final Class[] annos = {

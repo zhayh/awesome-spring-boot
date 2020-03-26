@@ -12,11 +12,11 @@ import org.springframework.validation.Validator;
  * @date : 2020-3-25 22:05
  * @description : 用户自定义验证器
  */
-public class ObjValidator implements Validator {
+public class MessageValidator implements Validator {
     // 该验证器只是支持User类验证
     @Override
     public boolean supports(Class<?> clazz) {
-        return clazz.equals(ValidatorObj.class);
+        return clazz.equals(Message.class);
     }
 
     // 验证逻辑
@@ -29,9 +29,9 @@ public class ObjValidator implements Validator {
             return;
         }
         // 强制转换
-        ValidatorObj obj = (ValidatorObj) target;
+        Message message = (Message) target;
         // 用户名非空串
-        if (StringUtils.isEmpty(obj.getText())) {
+        if (StringUtils.isEmpty(message.getText())) {
             // 增加错误，可以进入控制器方法
             errors.rejectValue("text", null, "正文不能为空");
         }

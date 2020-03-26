@@ -1,21 +1,22 @@
-package com.spring.restful.config;
+package com.spring.restful.custom.config;
 
-import com.spring.restful.common.ErrorResponseEntity;
-import com.spring.restful.common.ExceptionType;
-import com.spring.restful.exception.CustomException;
-import lombok.extern.slf4j.Slf4j;
+import com.spring.restful.custom.common.ErrorResponseEntity;
+import com.spring.restful.custom.common.ExceptionType;
+import com.spring.restful.custom.exception.CustomException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * @author : zhayh
@@ -73,5 +74,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             return new ResponseEntity<>(new ErrorResponseEntity(status.value(), "参数错误"), status);
         }
         return new ResponseEntity<>(new ErrorResponseEntity(status.value(), "参数错误"), status);
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public void fileUploadExceion(MaxUploadSizeExceededException e,
+                                  HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.write("上传文件大小超出限制");
+        out.flush();
+        out.close();
     }
 }

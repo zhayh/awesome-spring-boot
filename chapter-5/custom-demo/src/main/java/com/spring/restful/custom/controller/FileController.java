@@ -4,14 +4,12 @@ import com.spring.restful.custom.common.ExceptionType;
 import com.spring.restful.custom.exception.CustomException;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +28,7 @@ import java.util.UUID;
  */
 
 @RestController
-public class FileUploadController {
+public class FileController {
 
     @PostMapping("/upload")
     public String upload(MultipartFile file, HttpServletRequest request) {
@@ -82,10 +80,9 @@ public class FileUploadController {
     @Value("${file.download.root.dir}")
     private String dirPath;
 
-    @GetMapping("/download")
-    public ResponseEntity<byte[]> fileDownload(HttpServletRequest request,
-                                               String filename) {
-        // 指定要下载的文件根路径
+    @GetMapping("/download/{filename}")
+    public ResponseEntity<byte[]> fileDownload(@PathVariable String filename,
+                                               HttpServletRequest request) {
         File file = new File(dirPath, filename);
         if(!file.exists()) {
             throw new CustomException(ExceptionType.NOT_FOUND_ERROR.getCode(),
