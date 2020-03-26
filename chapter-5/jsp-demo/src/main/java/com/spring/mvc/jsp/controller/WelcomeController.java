@@ -24,7 +24,7 @@ public class WelcomeController {
      * @param name ： 参数
      * @return ： 返回hello跳转到hello.html
      */
-    @GetMapping("/hello")
+    @GetMapping("/hello")  // /hello?name=zhangsan
     public String hello(Model model, String name) {
         model.addAttribute("name", name);
         return "hello";
