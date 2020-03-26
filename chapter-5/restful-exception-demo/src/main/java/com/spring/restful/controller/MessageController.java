@@ -31,8 +31,8 @@ public class MessageController {
     }
 
     @PostMapping("/message")
-    public ResponseEntity<Message> create(Message message) {
-        if (message == null) {
+    public ResponseEntity<Message> create(@RequestBody Message message) {
+        if (message == null || message.getText() == null || message.getText().isEmpty()) {
             throw new CustomException(ExceptionType.USER_INPUT_ERROR);
         }
         try {
@@ -40,13 +40,13 @@ public class MessageController {
             return ResponseEntity.ok(msg);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new CustomException(ExceptionType.SYSTEM_ERROR.getCode(), e.getMessage());
+            throw new CustomException(ExceptionType.SERVER_ERROR.getCode(), e.getMessage());
         }
     }
 
     @PutMapping("/message")
-    public ResponseEntity<Message> modify(Message message) {
-        if (message == null) {
+    public ResponseEntity<Message> modify(@RequestBody Message message) {
+        if (message == null || message.getText() == null || message.getText().isEmpty()) {
             throw new CustomException(ExceptionType.USER_INPUT_ERROR);
         }
         try {
@@ -54,13 +54,13 @@ public class MessageController {
             return ResponseEntity.ok(msg);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new CustomException(ExceptionType.SYSTEM_ERROR.getCode(), e.getMessage());
+            throw new CustomException(ExceptionType.SERVER_ERROR.getCode(), e.getMessage());
         }
     }
 
     @PatchMapping("/message/text")
-    public ResponseEntity<Message> patch(Message message) {
-        if (message == null) {
+    public ResponseEntity<Message> patch(@RequestBody Message message) {
+        if (message == null || message.getText() == null || message.getText().isEmpty()) {
             throw new CustomException(ExceptionType.USER_INPUT_ERROR);
         }
         try {
@@ -68,7 +68,7 @@ public class MessageController {
             return ResponseEntity.ok(msg);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new CustomException(ExceptionType.SYSTEM_ERROR.getCode(), e.getMessage());
+            throw new CustomException(ExceptionType.SERVER_ERROR.getCode(), e.getMessage());
         }
     }
 
@@ -86,5 +86,19 @@ public class MessageController {
     public ResponseEntity<String> delete(@PathVariable("id") Long id) {
         this.messageService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    /**
+     * 测试异常
+     */
+    @GetMapping("/exception")
+    public String exception() {
+        int i = 1 / 0;
+        return "exception";
+    }
+
+    @GetMapping("/userException")
+    public String userException() {
+        throw new CustomException(ExceptionType.USER_INPUT_ERROR);
     }
 }

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date : 2020-3-21 09:20
  * @description : 统一异常处理
  */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     /**
@@ -49,9 +50,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ErrorResponseEntity runtimeExceptionHandler(HttpServletRequest request, final Exception e,
                                                        HttpServletResponse response) {
-        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         RuntimeException exception = (RuntimeException) e;
-        return new ErrorResponseEntity(ExceptionType.USER_INPUT_ERROR.getCode(), exception.getMessage());
+        return new ErrorResponseEntity(ExceptionType.SERVER_ERROR.getCode(),
+                ExceptionType.SERVER_ERROR.getMsg());
     }
 
     /**
@@ -67,10 +69,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         }
         if (ex instanceof MethodArgumentTypeMismatchException) {
             MethodArgumentTypeMismatchException exception = (MethodArgumentTypeMismatchException) ex;
-            logger.error("参数转换失败，方法：" + exception.getParameter().getMethod().getName() + "，参数：" + exception.getName()
-                    + ",信息：" + exception.getLocalizedMessage());
-            return new ResponseEntity<>(new ErrorResponseEntity(status.value(), "参数转换失败"), status);
+            logger.error("参数错误，方法：" + exception.getParameter().getMethod().getName() + "，参数：" + exception.getName()
+                    + ", 信息：" + exception.getLocalizedMessage());
+            return new ResponseEntity<>(new ErrorResponseEntity(status.value(), "参数错误"), status);
         }
-        return new ResponseEntity<>(new ErrorResponseEntity(status.value(), "参数转换失败"), status);
+        return new ResponseEntity<>(new ErrorResponseEntity(status.value(), "参数错误"), status);
     }
 }

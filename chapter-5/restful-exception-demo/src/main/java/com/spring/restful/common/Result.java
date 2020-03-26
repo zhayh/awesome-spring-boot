@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.springframework.http.HttpStatus;
 
 /**
  * @author : zhayh
@@ -18,7 +17,6 @@ import org.springframework.http.HttpStatus;
 public class Result<T> {
     private int code = ExceptionType.SUCCESS.getCode();
     private String message = ExceptionType.SUCCESS.getMsg();
-    @NonNull
     private T data;
 
     public static Result<Object> success() {
@@ -38,7 +36,7 @@ public class Result<T> {
     }
 
     public static Result<Object> fail(String msg, Object data) {
-        return fail(ExceptionType.SYSTEM_ERROR.getCode(), msg,null);
+        return fail(ExceptionType.SERVER_ERROR.getCode(), msg,null);
     }
 
     public static Result<Object> fail(int code, String msg, Object data) {
