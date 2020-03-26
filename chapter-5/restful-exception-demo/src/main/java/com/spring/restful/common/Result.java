@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.http.HttpStatus;
 
 /**
  * @author : zhayh
@@ -37,7 +38,7 @@ public class Result<T> {
     }
 
     public static Result<Object> fail(String msg, Object data) {
-        return fail(ExceptionType.SERVER_ERROR.getCode(), msg,null);
+        return fail(ExceptionType.SYSTEM_ERROR.getCode(), msg,null);
     }
 
     public static Result<Object> fail(int code, String msg, Object data) {
