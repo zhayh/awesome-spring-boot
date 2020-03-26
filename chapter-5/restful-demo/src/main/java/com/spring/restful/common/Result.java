@@ -27,8 +27,8 @@ public class Result<T> {
 
     public static Result<Object> success(Object data) {
         Result<Object> result = new Result<>();
-        result.setCode(HttpStatus.OK.value());
-        result.setMessage(HttpStatus.OK.getReasonPhrase());
+        result.setCode(ExceptionType.SUCCESS.getCode());
+        result.setMessage(ExceptionType.SUCCESS.getMsg());
         result.setData(data);
         return result;
     }

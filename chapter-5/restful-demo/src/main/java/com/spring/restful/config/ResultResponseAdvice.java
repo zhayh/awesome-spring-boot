@@ -19,7 +19,7 @@ import java.util.Arrays;
  * @description : 全局统一响应返回码的处理
  */
 
-//@RestControllerAdvice("com.spring.restful.controller")
+@RestControllerAdvice("com.spring.restful.controller")
 public class ResultResponseAdvice implements ResponseBodyAdvice<Object> {
 
     private static final Class[] annos = {

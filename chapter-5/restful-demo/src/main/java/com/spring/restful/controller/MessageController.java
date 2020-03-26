@@ -27,13 +27,20 @@ public class MessageController {
             return ResponseEntity.noContent().build();
         }
     }
+
+    /**
+     * 注解 @RequestBody：参数为JSON格式
+     * 注解 @RequestParam：参数为form表单格式
+     * @param message ： Message对象
+     * @return
+     */
     @PostMapping("/message")
-    public ResponseEntity<Message> create(Message message) {
+    public ResponseEntity<Message> create(@RequestBody Message message) {
         Message msg = this.messageService.save(message);
         return ResponseEntity.ok(msg);
     }
     @PutMapping("/message")
-    public ResponseEntity<Message> modify(Message message) {
+    public ResponseEntity<Message> modify(@RequestBody Message message) {
         Message msg = this.messageService.update(message);
         return ResponseEntity.ok(msg);
     }

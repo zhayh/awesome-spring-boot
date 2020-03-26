@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试JSR-303</title>
+    <script src="jquery-3.4.1.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {
+            // 请求验证的POJO
+            var obj = {
+                id: null,
+                data: '2020-03-26',
+                doubleValue: 9999.0
+                integer: 110,
+                range: 50,
+                email: 'email',
+                size: 'abc',
+                regexp: 'a,b,c,d'
+            }
+            $.post({
+                url: "./validate",
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                success: function(result) {
+
+                }
+            })
+        })
+    </script>
+</body>
+</html>
