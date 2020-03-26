@@ -17,7 +17,7 @@ import lombok.NonNull;
 public class Result<T> {
     private int code = ExceptionType.SUCCESS.getCode();
     private String message = ExceptionType.SUCCESS.getMsg();
-//    @NonNull
+    @NonNull
     private T data;
 
     public static Result<Object> success() {
