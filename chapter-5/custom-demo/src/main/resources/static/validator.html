@@ -6,7 +6,14 @@
     <script src="js/jquery-3.4.1.js"></script>
 </head>
 <body>
+    <div id="error"></div>
     <script>
+        var censor = function(key,value){
+            if(typeof(value) == 'function'){
+                return Function.prototype.toString.call(value)
+            }
+            return value;
+        }
         $(document).ready(function() {
             // 请求验证的POJO
             var obj = {
@@ -24,7 +31,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(obj),
                 success: function(result) {
-
+                    alert(JSON.stringify(result, censor, 4));
                 }
             })
         })

@@ -16,10 +16,10 @@ import java.util.Arrays;
 /**
  * @author : zhayh
  * @date : 2020-3-20 12:23
- * @description : 全局统一响应返回码的处理
+ * @description : 全局统一响应返回码的处理，
  */
 
-@RestControllerAdvice("com.spring.restful.custom.controller")
+//@RestControllerAdvice("com.spring.restful.custom.controller")
 public class ResultResponseAdvice implements ResponseBodyAdvice<Object> {
 
     private static final Class[] annos = {
