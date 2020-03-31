@@ -13,7 +13,7 @@ import org.springframework.validation.Validator;
  * @description : 用户自定义验证器
  */
 public class MessageValidator implements Validator {
-    // 该验证器只是支持User类验证
+    // 该验证器只是支持Message类验证
     @Override
     public boolean supports(Class<?> clazz) {
         return clazz.equals(Message.class);
