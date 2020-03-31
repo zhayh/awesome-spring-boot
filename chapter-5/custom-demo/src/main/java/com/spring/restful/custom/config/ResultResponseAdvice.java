@@ -19,7 +19,7 @@ import java.util.Arrays;
  * @description : 全局统一响应返回码的处理，
  */
 
-//@RestControllerAdvice("com.spring.restful.custom.controller")
+@RestControllerAdvice("com.spring.restful.custom.controller")
 public class ResultResponseAdvice implements ResponseBodyAdvice<Object> {
 
     private static final Class[] annos = {
@@ -38,6 +38,12 @@ public class ResultResponseAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(MethodParameter returnType,
                             Class<? extends HttpMessageConverter<?>> converterType) {
+        if (returnType.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)) {
+            return false;
+        }
+        if (returnType.getMethod().isAnnotationPresent(IgnoreResponseAdvice.class)) {
+            return false;
+        }
         AnnotatedElement element = returnType.getAnnotatedElement();
         return Arrays.stream(annos).anyMatch(anno -> anno.isAnnotation() && element.isAnnotationPresent(anno));
     }

@@ -28,7 +28,7 @@ public class MyFastjsonConfig {
                 SerializerFeature.WriteMapNullValue,       // 输出值为null的字段,默认为false
                 SerializerFeature.WriteNullListAsEmpty,    // 将Collection类型字段的字段空值输出为[]
                 SerializerFeature.WriteNullStringAsEmpty,  // 将字符串类型字段的空值输出为空字符串
-                SerializerFeature.DisableCircularReferenceDetect // 禁用循环依赖
+                SerializerFeature.DisableCircularReferenceDetect // 禁用引用循环依赖
         );
         converter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON));
         converter.setFastJsonConfig(config);

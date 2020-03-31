@@ -1,6 +1,7 @@
 package com.spring.restful.custom.controller;
 
 import com.spring.restful.custom.common.ExceptionType;
+import com.spring.restful.custom.config.IgnoreResponseAdvice;
 import com.spring.restful.custom.exception.CustomException;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,7 +30,7 @@ import java.util.stream.Stream;
 /**
  * @author : zhayh
  * @date : 2020-3-25 16:15
- * @description : 实现文件上传下载，文件下载时不能使用ResultResponseAdvice进行Result的织入
+ * @description : 实现文件上传下载，文件下载时使用@IgnoreResponseAdvice
  */
 
 @RestController
@@ -62,38 +63,36 @@ public class FileController {
 
     @PostMapping("/uploads")
     public ResponseEntity<String> uploads(MultipartFile[] files, HttpServletRequest request) {
-        String format = LocalDate.now().format(DateTimeFormatter.ofPattern("/yyyy/MM/dd/"));
-        String realPath = request.getServletContext().getRealPath("/img") + format;
-        File folder = new File(realPath);
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
-        List<String> uploadUrls = new ArrayList<>();
-        for (MultipartFile file : files) {
-            String oldName = file.getOriginalFilename();
-            String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."));
-
-            try {
-                file.transferTo(new File(folder, newName));
-                String url = request.getScheme() + "://" + request.getServerName() + ":"
-                        + request.getServerPort() + "/img" + format + newName;
-                uploadUrls.add(url);
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new CustomException(ExceptionType.OTHER_ERROR.getCode(), e.getMessage());
-            }
-        }
+//        String format = LocalDate.now().format(DateTimeFormatter.ofPattern("/yyyy/MM/dd/"));
+//        String realPath = request.getServletContext().getRealPath("/img") + format;
+//        File folder = new File(realPath);
+//        if (!folder.exists()) {
+//            folder.mkdirs();
+//        }
+//        List<String> uploadUrls = new ArrayList<>();
+//        for (MultipartFile file : files) {
+//            String oldName = file.getOriginalFilename();
+//            String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."));
+//
+//            try {
+//                file.transferTo(new File(folder, newName));
+//                String url = request.getScheme() + "://" + request.getServerName() + ":"
+//                        + request.getServerPort() + "/img" + format + newName;
+//                uploadUrls.add(url);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                throw new CustomException(ExceptionType.OTHER_ERROR.getCode(), e.getMessage());
+//            }
+//        }
+        List<String> uploadUrls = Arrays.stream(files)
+                .map(file -> upload(file, request))
+                .map(ResponseEntity::getBody)
+                .collect(Collectors.toList());
         return ResponseEntity.ok(String.join(",", uploadUrls));
-//        List<String> uploadUrls = Arrays.stream(files)
-//                .map(file -> upload(file, request))
-//                .map(ResponseEntity::getBody)
-//                .collect(Collectors.toList());
     }
 
-    @Value("${file.download.root.dir}")
-    private String dirPath;
-
     @GetMapping("/download/{filename}")
+    @IgnoreResponseAdvice
     public ResponseEntity<FileSystemResource> fileDownload(@PathVariable String filename,
                                                            HttpServletRequest request) {
         File file = new File(dirPath, filename);
@@ -124,6 +123,9 @@ public class FileController {
             throw new CustomException(ExceptionType.OTHER_ERROR.getCode(), e.getMessage());
         }
     }
+
+    @Value("${file.download.root.dir}")
+    private String dirPath;
 
     // 根据浏览器的不同进行编码设置，返回编码后的文件名
     private String getFilename(HttpServletRequest request, String filename) throws Exception {
