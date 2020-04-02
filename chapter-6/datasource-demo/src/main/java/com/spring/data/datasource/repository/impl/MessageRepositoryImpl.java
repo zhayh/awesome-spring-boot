@@ -34,7 +34,7 @@ public class MessageRepositoryImpl implements MessageRepository {
     public Message findOne(Long id) {
         return jdbcTemplate.queryForObject("select * from message where id=?",
                 new Object[]{id},
-                new BeanPropertyRowMapper<Message>(Message.class));
+                new BeanPropertyRowMapper<>(Message.class));
     }
 
     @Override
