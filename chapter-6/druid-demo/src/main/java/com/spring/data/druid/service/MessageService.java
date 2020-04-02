@@ -1,14 +1,17 @@
-package soft.spring.data.declarativetransactiondemo;
+package com.spring.data.druid.service;
 
-import java.sql.SQLTransactionRollbackException;
+import com.spring.data.druid.exception.RollbackException;
+import com.spring.data.druid.model.Message;
 
 /**
  * @author : zhayh
- * @Date : 2020-2-8 14:56
- * @Description: Foo的service接口
+ * @Date : 2020-4-1 22:08
+ * @Description: Message的service接口
  */
-public interface FooService {
-    void insertRecord();
-    void insertThenRollback() throws RollbackException;
-    void invokeInsertThenRollback() throws RollbackException;
+public interface MessageService {
+    void insertRecord(Message message);
+
+    void insertThenRollback(Message message) throws RollbackException;
+
+    void invokeInsertThenRollback(Message message) throws RollbackException;
 }

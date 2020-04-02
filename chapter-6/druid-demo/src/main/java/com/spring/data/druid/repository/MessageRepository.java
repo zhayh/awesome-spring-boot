@@ -1,8 +1,8 @@
-package com.spring.data.mysql.repository;
+package com.spring.data.druid.repository;
 
+import com.spring.data.druid.model.Message;
 
-import com.spring.data.mysql.model.Message;
-
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,15 +13,17 @@ import java.util.List;
 public interface MessageRepository {
     List<Message> findAll();
 
-    Message findOne(Long id);
+    Message findById(Integer id);
 
     int insert(Message message);
 
     int[] batchInsert(List<Message> messages);
 
-    int delete(Long id);
+    int delete(Integer id);
 
     int update(Message message);
 
     int updateText(Message message);
+
+    Long count() ;
 }

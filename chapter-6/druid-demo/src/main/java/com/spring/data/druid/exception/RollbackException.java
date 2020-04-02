@@ -1,8 +1,8 @@
-package soft.spring.data.declarativetransactiondemo;
+package com.spring.data.druid.exception;
 
 /**
  * @author : zhayh
- * @date : 2020-2-8 14:58
+ * @date : 2020-4-1 21:58
  * @description :
  */
 public class RollbackException extends Exception {

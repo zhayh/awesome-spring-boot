@@ -1,4 +1,4 @@
-package soft.spring.data.druiddemo;
+package com.spring.data.druid.filter;
 
 import com.alibaba.druid.filter.FilterChain;
 import com.alibaba.druid.filter.FilterEventAdapter;
@@ -9,8 +9,8 @@ import java.util.Properties;
 
 /**
  * @author : zhayh
- * @date : 2020-2-8 09:25
- * @description : 定制Druid Filter
+ * @date : 2020-4-1 19:25
+ * @description : 定制 Druid Filter
  */
 
 @Slf4j

@@ -1,4 +1,4 @@
-package com.spring.data.mysql.model;
+package com.spring.data.druid.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Message {
-    private Long id;
-    private String text;
-    private String summary;
+    private Integer msgId;
+    private String msgText;
+    private String msgSummary;
 }

@@ -3,30 +3,37 @@
         "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-
-    <bean id="H2" class="org.springframework.jdbc.support.SQLErrorCodes">
+    <bean id="MySQL" class="org.springframework.jdbc.support.SQLErrorCodes">
+        <property name="databaseProductNames">
+            <list>
+                <value>MySQL</value>
+                <value>MariaDB</value>
+            </list>
+        </property>
         <property name="badSqlGrammarCodes">
-            <value>42000,42001,42101,42102,42111,42112,42121,42122,42132</value>
+            <value>1054,1064,1146</value>
         </property>
         <property name="duplicateKeyCodes">
-            <value>23001,23505</value>
+            <value>1062</value>
         </property>
         <property name="dataIntegrityViolationCodes">
-            <value>22001,22003,22012,22018,22025,23000,23002,23003,23502,23503,23506,23507,23513</value>
+            <value>630,839,840,893,1169,1215,1216,1217,1364,1451,1452,1557</value>
         </property>
         <property name="dataAccessResourceFailureCodes">
-            <value>90046,90100,90117,90121,90126</value>
+            <value>1</value>
         </property>
         <property name="cannotAcquireLockCodes">
-            <value>50200</value>
+            <value>1205</value>
+        </property>
+        <property name="deadlockLoserCodes">
+            <value>1213</value>
         </property>
         <property name="customTranslations">
             <bean class="org.springframework.jdbc.support.CustomSQLErrorCodesTranslation">
-                <property name="errorCodes" value="23001,23505" />
+                <property name="errorCodes" value="1062" />
                 <property name="exceptionClass"
-                          value="soft.spring.data.errorcodedemo.CustomDuplicatedKeyException" />
+                          value="com.spring.data.druid.exception.CustomDuplicatedKeyException" />
             </bean>
         </property>
     </bean>
-
 </beans>

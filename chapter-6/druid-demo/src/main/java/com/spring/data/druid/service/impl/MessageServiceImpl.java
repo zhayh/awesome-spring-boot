@@ -1,35 +1,38 @@
-package soft.spring.data.declarativetransactiondemo;
+package com.spring.data.druid.service.impl;
 
+import com.spring.data.druid.exception.RollbackException;
+import com.spring.data.druid.model.Message;
+import com.spring.data.druid.repository.MessageRepository;
+import com.spring.data.druid.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author : zhayh
- * @date : 2020-2-8 14:58
- * @description : Foo的service接口的实现类
+ * @date : 2020-4-1 22:18
+ * @description : Message的service接口的实现类
  */
 @Service
-public class FooServiceImpl implements FooService {
+public class MessageServiceImpl implements MessageService {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private MessageRepository messageRepository;
 
     @Override
     @Transactional
-    public void insertRecord() {
-        jdbcTemplate.execute("INSERT INTO Foo (BAR) VALUES ('AAA')");
+    public void insertRecord(Message message) {
+        messageRepository.insert(message);
     }
 
     @Override
     @Transactional(rollbackFor = RollbackException.class)
-    public void insertThenRollback() throws RollbackException {
-        jdbcTemplate.execute("INSERT INTO Foo (BAR) VALUES ('BBB')");
+    public void insertThenRollback(Message message) throws RollbackException {
+        messageRepository.insert(message);
         throw new RollbackException();
     }
 
     @Override
-    public void invokeInsertThenRollback() throws RollbackException {
-        insertThenRollback();
+    public void invokeInsertThenRollback(Message message) throws RollbackException {
+        insertThenRollback(message);
     }
 }
