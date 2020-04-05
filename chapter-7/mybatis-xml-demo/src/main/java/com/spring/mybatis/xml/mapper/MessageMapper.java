@@ -1,4 +1,4 @@
-package com.spring.mybatis.xml.repository;
+package com.spring.mybatis.xml.mapper;
 
 
 import com.spring.mybatis.xml.model.Message;
@@ -10,7 +10,7 @@ import java.util.List;
  * @Date : 2020-2-18 09:09
  * @Description: Message的数据访问接口
  */
-public interface MessageRepository {
+public interface MessageMapper {
     List<Message> findAll();
 
     Message findById(Integer id);
@@ -23,5 +23,5 @@ public interface MessageRepository {
 
     int updateText(Message message);
 
-    int[] batchInsert(List<Message> messages);
+    int batchInsert(List<Message> messages);
 }

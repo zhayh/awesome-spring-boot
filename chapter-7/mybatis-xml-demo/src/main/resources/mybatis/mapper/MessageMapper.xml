@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.spring.mybatis.xml.repository.MessageRepository">
+<mapper namespace="com.spring.mybatis.xml.mapper.MessageMapper">
     <resultMap id="BaseResultMap" type="com.spring.mybatis.xml.model.Message" >
-        <id column="msg_id" property="id" jdbcType="BIGINT" />
+        <id column="msg_id" property="msgId" jdbcType="BIGINT" />
         <result column="msg_text" property="msgText" jdbcType="VARCHAR" />
         <result column="msg_summary" property="msgSummary" jdbcType="VARCHAR" />
     </resultMap>
@@ -13,23 +13,34 @@
     <select id="findAll" resultMap="BaseResultMap" >
         SELECT
         <include refid="Base_Column_List" />
-        FROM user
+        FROM message
     </select>
     <select id="findById" parameterType="Integer" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
-        FROM tb_message WHERE msg_id=#{id}
+        FROM message WHERE msg_id=#{msgId}
     </select>
     <insert id="insert" parameterType="com.spring.mybatis.xml.model.Message" >
         INSERT INTO message (msg_text, msg_summary) VALUES (#{msgText}, #{msgSummary})
     </insert>
+    <insert id="batchInsert" parameterType="com.spring.mybatis.xml.model.Message" >
+        INSERT INTO message (msg_text, msg_summary) VALUES
+        <foreach collection ="list" item="msg" index= "index" separator =",">
+            (#{msg.msgText}, #{msg.msgSummary})
+        </foreach>
+    </insert>
     <update id="update" parameterType="com.spring.mybatis.xml.model.Message" >
         UPDATE message SET
         <if test="msgText != null"> msg_text=#{msgText},</if>
-        <if test="msgSummary != null">msg_summary=#{msgSummary},</if>
-        WHERE msg_id = #{id}
+        <if test="msgSummary != null">msg_summary=#{msgSummary}</if>
+        WHERE msg_id = #{msgId}
+    </update>
+    <update id="updateText" parameterType="com.spring.mybatis.xml.model.Message" >
+        UPDATE message SET
+        <if test="msgText != null"> msg_text=#{msgText}</if>
+        WHERE msg_id = #{msgId}
     </update>
     <delete id="delete" parameterType="Integer">
-        DELETE FROM message WHERE msg_id=#{id}
+        DELETE FROM message WHERE msg_id=#{msgId}
     </delete>
 </mapper>
