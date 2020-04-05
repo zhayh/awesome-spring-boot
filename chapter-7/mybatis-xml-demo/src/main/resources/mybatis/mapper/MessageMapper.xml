@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.mybatis.xml.repository.MessageRepository">
+    <resultMap id="BaseResultMap" type="com.spring.mybatis.xml.model.Message" >
+        <id column="msg_id" property="id" jdbcType="BIGINT" />
+        <result column="msg_text" property="msgText" jdbcType="VARCHAR" />
+        <result column="msg_summary" property="msgSummary" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        msg_id, msg_text, msg_summary
+    </sql>
+    <select id="findAll" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user
+    </select>
+    <select id="findById" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM tb_message WHERE msg_id=#{id}
+    </select>
+    <insert id="insert" parameterType="com.spring.mybatis.xml.model.Message" >
+        INSERT INTO message (msg_text, msg_summary) VALUES (#{msgText}, #{msgSummary})
+    </insert>
+    <update id="update" parameterType="com.spring.mybatis.xml.model.Message" >
+        UPDATE message SET
+        <if test="msgText != null"> msg_text=#{msgText},</if>
+        <if test="msgSummary != null">msg_summary=#{msgSummary},</if>
+        WHERE msg_id = #{id}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM message WHERE msg_id=#{id}
+    </delete>
+</mapper>
