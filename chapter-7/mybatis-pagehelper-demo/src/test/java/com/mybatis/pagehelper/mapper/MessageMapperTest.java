@@ -1,21 +1,18 @@
-package com.spring.mybatis.xml.mapper;
+package com.mybatis.pagehelper.mapper;
 
-import com.spring.mybatis.xml.model.Message;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
+import com.mybatis.pagehelper.mapper.MessageMapper;
+import com.mybatis.pagehelper.model.Message;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.session.RowBounds;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.io.ClassPathResource;
 
 import javax.annotation.Resource;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,14 +20,14 @@ import java.util.List;
 /**
  * @author : zhayh
  * @date : 2020-4-2 08:45
- * @description :
+ * @description : 测试类
  */
 
 @Slf4j
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MessageMapperTest {
-    @Autowired
+    @Resource
     private MessageMapper messageMapper;
 
     @Test
@@ -53,13 +50,9 @@ public class MessageMapperTest {
 
     @Test
     @Order(3)
-    public void testSelectdAll() {
-        List<Message> msgs = messageMapper.selectAll();
-        if(msgs == null) {
-            log.error("msg为null");
-        } else {
-            msgs.forEach(msg -> log.info("查询到的记录： {}", msg));
-        }
+    public void testFindAll() {
+        messageMapper.selectAll().forEach(
+                message -> log.info("查询的数据： {}", message.toString()));
     }
 
     @Test
@@ -73,15 +66,14 @@ public class MessageMapperTest {
     @Test
     @Order(5)
     public void testUpdateText() {
-        Message message = Message.builder().msgId(2).msgText("computer")
-                .msgSummary("").build();
+        Message message = Message.builder().msgId(2).msgText("computer").msgSummary("学校").build();
         int num = messageMapper.updateText(message);
         log.info("更新Text的数据条数： {}", num);
     }
 
     @Test
     @Order(6)
-    public void testSelectById() {
+    public void testFindById() {
         Message message = messageMapper.selectById(1);
         log.info("id为1的数据： {}", message);
     }
@@ -93,23 +85,27 @@ public class MessageMapperTest {
         log.info("删除的数据条数： {}", num);
     }
 
-//    @Test
-//    public void testSelectByCondition1() {
-//        Message message = Message.builder().msgId(2).msgText("").msgSummary("学校").build();
-//        messageMapper.selectByCondition(message).forEach(
-//                msg -> log.info("查询的数据： {}", msg.toString()));
-//    }
+    @Test
+    @Order(8)
+    public void testfindWithRowBounds() {
+        messageMapper.findAllWithRowBounds(new RowBounds(1, 3))
+                .forEach(coffee -> log.info("Page(1) Message {}", coffee));
+        messageMapper.findAllWithRowBounds(new RowBounds(2, 3))
+                .forEach(coffee -> log.info("Page(2) Message {}", coffee));
+        log.info("====================");
 
-    // 演示SqlSessionFactory、SqlSession的应用
-//    @Test
-//    public void testSelectOne() throws IOException {
-//        String resource = "mybatis-config.xml";
-//        InputStream inputStream = new ClassPathResource(resource).getInputStream();
-//        SqlSessionFactory sqlSessionFactory =
-//                new SqlSessionFactoryBuilder().build(inputStream);
-//        SqlSession sqlSession = sqlSessionFactory.openSession();
-//        Message message = sqlSession.selectOne("com.spring.mybatis.xml.mapper.MessageMapper.selectById", 8);
-//        log.info(message.toString());
-//        sqlSession.close();
-//    }
+        messageMapper.findAllWithRowBounds(new RowBounds(1, 0))
+                .forEach(coffee -> log.info("Page(1) Message {}", coffee));
+        log.info("====================");
+    }
+
+    @Test
+    @Order(9)
+    public void testFindALlWithParam() {
+        messageMapper.findALlWithParam(1, 3)
+                .forEach(coffee -> log.info("Page(1) Message {}", coffee));
+        List<Message> messages = messageMapper.findALlWithParam(2, 3);
+        PageInfo page = new PageInfo<>(messages);
+        log.info("PageInfo: {}", page);
+    }
 }

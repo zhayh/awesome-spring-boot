@@ -3,22 +3,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.spring.mybatis.xml.mapper.MessageMapper">
     <resultMap id="BaseResultMap" type="com.spring.mybatis.xml.model.Message" >
+        <!--配置主键映射关系，配置主键可以增加查询效率-->
         <id column="msg_id" property="msgId" jdbcType="BIGINT" />
+        <!--配置普通字段的映射关系-->
         <result column="msg_text" property="msgText" jdbcType="VARCHAR" />
         <result column="msg_summary" property="msgSummary" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List" >
         msg_id, msg_text, msg_summary
     </sql>
-    <select id="findAll" resultMap="BaseResultMap" >
+    <select id="selectAll" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
         FROM message
     </select>
-    <select id="findById" parameterType="Integer" resultMap="BaseResultMap">
+    <select id="selectById" parameterType="Integer" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List" />
-        FROM message WHERE msg_id=#{msgId}
+        FROM message
+        WHERE msg_id=#{msgId}
     </select>
     <insert id="insert" parameterType="com.spring.mybatis.xml.model.Message" >
         INSERT INTO message (msg_text, msg_summary) VALUES (#{msgText}, #{msgSummary})
@@ -32,15 +35,57 @@
     <update id="update" parameterType="com.spring.mybatis.xml.model.Message" >
         UPDATE message SET
         <if test="msgText != null"> msg_text=#{msgText},</if>
-        <if test="msgSummary != null">msg_summary=#{msgSummary}</if>
+        <if test="msgSummary != null"> msg_summary=#{msgSummary} </if>
         WHERE msg_id = #{msgId}
     </update>
     <update id="updateText" parameterType="com.spring.mybatis.xml.model.Message" >
-        UPDATE message SET
-        <if test="msgText != null"> msg_text=#{msgText}</if>
+        UPDATE message
+        <set>
+            <if test="msgText != null and msgText != ''"> msg_text=#{msgText} </if>
+            <if test="msgSummary != null and msgSummary != ''"> msg_summary=#{msgSummary} </if>
+        </set>
         WHERE msg_id = #{msgId}
     </update>
     <delete id="delete" parameterType="Integer">
         DELETE FROM message WHERE msg_id=#{msgId}
     </delete>
+
+<!--    <select id="selectByCondition" resultMap="BaseResultMap">-->
+<!--        select * from message where 1=1-->
+<!--        <choose>-->
+<!--            <when test="msgText != null and msgText !=''">-->
+<!--                and msg_text like concat('%', #{msgText}, '%')-->
+<!--            </when>-->
+<!--            <when test="msgSummary !=null and msgSummary !=''">-->
+<!--                and msg_summary = #{msgSummary}-->
+<!--            </when>-->
+<!--            <otherwise>-->
+<!--                and msg_id is not null-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+<!--    </select>-->
+
+<!--    <select id="selectByCondition" resultMap="BaseResultMap">-->
+<!--        select * from message-->
+<!--        <where>-->
+<!--            <if test="msgText != null and msgText !=''">-->
+<!--                and msg_text like concat('%', #{msgText}, '%')-->
+<!--            </if>-->
+<!--            <if test="msgSummary !=null and msgSummary !=''">-->
+<!--                and msg_summary = #{msgSummary}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>    -->
+
+<!--    <select id="selectByCondition" resultMap="BaseResultMap">-->
+<!--        select * from message-->
+<!--        <trim prefix="where" prefixOverrides="and">-->
+<!--            <if test="msgText != null and msgText !=''">-->
+<!--                and msg_text like concat('%', #{msgText}, '%')-->
+<!--            </if>-->
+<!--            <if test="msgSummary !=null and msgSummary !=''">-->
+<!--                and msg_summary = #{msgSummary}-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--    </select>-->
 </mapper>
