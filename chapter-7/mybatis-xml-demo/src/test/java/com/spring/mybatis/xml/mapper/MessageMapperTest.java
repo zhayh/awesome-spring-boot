@@ -2,20 +2,13 @@ package com.spring.mybatis.xml.mapper;
 
 import com.spring.mybatis.xml.model.Message;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.io.ClassPathResource;
 
 import javax.annotation.Resource;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +23,7 @@ import java.util.List;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MessageMapperTest {
-    @Autowired
+    @Resource
     private MessageMapper messageMapper;
 
     @Test
@@ -55,7 +48,7 @@ public class MessageMapperTest {
     @Order(3)
     public void testSelectdAll() {
         List<Message> msgs = messageMapper.selectAll();
-        if(msgs == null) {
+        if (msgs == null) {
             log.error("msg为null");
         } else {
             msgs.forEach(msg -> log.info("查询到的记录： {}", msg));
@@ -93,12 +86,12 @@ public class MessageMapperTest {
         log.info("删除的数据条数： {}", num);
     }
 
-//    @Test
-//    public void testSelectByCondition1() {
-//        Message message = Message.builder().msgId(2).msgText("").msgSummary("学校").build();
-//        messageMapper.selectByCondition(message).forEach(
-//                msg -> log.info("查询的数据： {}", msg.toString()));
-//    }
+    @Test
+    public void testSelectByCondition1() {
+        Message message = Message.builder().msgId(2).msgText("niit").msgSummary("学校").build();
+        messageMapper.selectByCondition(message).forEach(
+                msg -> log.info("查询的数据： {}", msg.toString()));
+    }
 
     // 演示SqlSessionFactory、SqlSession的应用
 //    @Test

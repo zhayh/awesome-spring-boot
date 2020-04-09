@@ -2,22 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.spring.mybatis.xml.mapper.MessageMapper">
-    <resultMap id="BaseResultMap" type="com.spring.mybatis.xml.model.Message" >
-        <!--配置主键映射关系，配置主键可以增加查询效率-->
-        <id column="msg_id" property="msgId" jdbcType="BIGINT" />
-        <!--配置普通字段的映射关系-->
-        <result column="msg_text" property="msgText" jdbcType="VARCHAR" />
-        <result column="msg_summary" property="msgSummary" jdbcType="VARCHAR" />
-    </resultMap>
+<!--    <resultMap id="BaseResultMap" type="com.spring.mybatis.xml.model.Message" >-->
+<!--        &lt;!&ndash;配置主键映射关系，配置主键可以增加查询效率&ndash;&gt;-->
+<!--        <id column="msg_id" property="msgId" jdbcType="BIGINT" />-->
+<!--        &lt;!&ndash;配置普通字段的映射关系&ndash;&gt;-->
+<!--        <result column="msg_text" property="msgText" jdbcType="VARCHAR" />-->
+<!--        <result column="msg_summary" property="msgSummary" jdbcType="VARCHAR" />-->
+<!--    </resultMap>-->
     <sql id="Base_Column_List" >
         msg_id, msg_text, msg_summary
     </sql>
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultType="com.spring.mybatis.xml.model.Message">
         SELECT
         <include refid="Base_Column_List" />
         FROM message
     </select>
-    <select id="selectById" parameterType="Integer" resultMap="BaseResultMap">
+    <select id="selectById" parameterType="Integer" resultType="com.spring.mybatis.xml.model.Message">
         SELECT
         <include refid="Base_Column_List" />
         FROM message
@@ -50,22 +50,22 @@
         DELETE FROM message WHERE msg_id=#{msgId}
     </delete>
 
-<!--    <select id="selectByCondition" resultMap="BaseResultMap">-->
-<!--        select * from message where 1=1-->
-<!--        <choose>-->
-<!--            <when test="msgText != null and msgText !=''">-->
-<!--                and msg_text like concat('%', #{msgText}, '%')-->
-<!--            </when>-->
-<!--            <when test="msgSummary !=null and msgSummary !=''">-->
-<!--                and msg_summary = #{msgSummary}-->
-<!--            </when>-->
-<!--            <otherwise>-->
-<!--                and msg_id is not null-->
-<!--            </otherwise>-->
-<!--        </choose>-->
-<!--    </select>-->
+    <select id="selectByCondition" resultType="com.spring.mybatis.xml.model.Message">
+        select * from message where 1=1
+        <choose>
+            <when test="msgText != null and msgText !=''">
+                and msg_text like concat('%', #{msgText}, '%')
+            </when>
+            <when test="msgSummary !=null and msgSummary !=''">
+                and msg_summary = #{msgSummary}
+            </when>
+            <otherwise>
+                and msg_id is not null
+            </otherwise>
+        </choose>
+    </select>
 
-<!--    <select id="selectByCondition" resultMap="BaseResultMap">-->
+<!--    <select id="selectByCondition" resultType="com.spring.mybatis.xml.model.Message">-->
 <!--        select * from message-->
 <!--        <where>-->
 <!--            <if test="msgText != null and msgText !=''">-->
@@ -75,9 +75,9 @@
 <!--                and msg_summary = #{msgSummary}-->
 <!--            </if>-->
 <!--        </where>-->
-<!--    </select>    -->
+<!--    </select>-->
 
-<!--    <select id="selectByCondition" resultMap="BaseResultMap">-->
+<!--    <select id="selectByCondition" resultType="com.spring.mybatis.xml.model.Message">-->
 <!--        select * from message-->
 <!--        <trim prefix="where" prefixOverrides="and">-->
 <!--            <if test="msgText != null and msgText !=''">-->
