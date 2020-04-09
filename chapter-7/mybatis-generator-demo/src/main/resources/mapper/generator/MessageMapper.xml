@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.generator.mapper.generator.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.generator.model.generator.Message">
+    <id column="msg_id" jdbcType="INTEGER" property="msgId" />
+    <result column="msg_text" jdbcType="VARCHAR" property="msgText" />
+    <result column="msg_summary" jdbcType="VARCHAR" property="msgSummary" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    msg_id, msg_text, msg_summary
+  </sql>
+  <select id="selectByExample" parameterType="com.mybatis.generator.model.generator.MessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from message
+    where msg_id = #{msgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from message
+    where msg_id = #{msgId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mybatis.generator.model.generator.MessageExample">
+    delete from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="msg_id" keyProperty="msgId" parameterType="com.mybatis.generator.model.generator.Message" useGeneratedKeys="true">
+    insert into message (msg_text, msg_summary)
+    values (#{msgText,jdbcType=VARCHAR}, #{msgSummary,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="msg_id" keyProperty="msgId" parameterType="com.mybatis.generator.model.generator.Message" useGeneratedKeys="true">
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgText != null">
+        msg_text,
+      </if>
+      <if test="msgSummary != null">
+        msg_summary,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgText != null">
+        #{msgText,jdbcType=VARCHAR},
+      </if>
+      <if test="msgSummary != null">
+        #{msgSummary,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mybatis.generator.model.generator.MessageExample" resultType="java.lang.Long">
+    select count(*) from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update message
+    <set>
+      <if test="record.msgId != null">
+        msg_id = #{record.msgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.msgText != null">
+        msg_text = #{record.msgText,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgSummary != null">
+        msg_summary = #{record.msgSummary,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update message
+    set msg_id = #{record.msgId,jdbcType=INTEGER},
+      msg_text = #{record.msgText,jdbcType=VARCHAR},
+      msg_summary = #{record.msgSummary,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatis.generator.model.generator.Message">
+    update message
+    <set>
+      <if test="msgText != null">
+        msg_text = #{msgText,jdbcType=VARCHAR},
+      </if>
+      <if test="msgSummary != null">
+        msg_summary = #{msgSummary,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where msg_id = #{msgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.generator.model.generator.Message">
+    update message
+    set msg_text = #{msgText,jdbcType=VARCHAR},
+      msg_summary = #{msgSummary,jdbcType=VARCHAR}
+    where msg_id = #{msgId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,17 +1,16 @@
-package com.spring.mybatis.xml.mapper;
+package com.mybatis.generator.mapper;
 
-import com.spring.mybatis.xml.model.Message;
+import com.mybatis.generator.mapper.generator.MessageMapper;
+import com.mybatis.generator.model.generator.Message;
+import com.mybatis.generator.model.generator.MessageExample;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javax.annotation.Resource;
 
 /**
  * @author : zhayh
@@ -23,61 +22,89 @@ import java.util.List;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MessageMapperTest {
-    @Autowired
+    @Resource
     private MessageMapper messageMapper;
 
     @Test
     @Order(1)
     public void testInsert() {
-        Message message = Message.builder().msgText("niit").msgSummary("学校").build();
-        int num = messageMapper.insert(message);
+        // insert into message(msg_text, msg_summary) values (#{msgText}, #{msgSummary})
+        Message message = new Message();
+        message.setMsgText("orange");
+        message.setMsgSummary("水果");
+        int num = messageMapper.insertSelective(message);
         log.info("插入的数据条数： {}", num);
     }
 
-    @Test
-    @Order(2)
-    public void testBatchInsert() {
-        List<Message> messages = new ArrayList<>(Arrays.asList(
-                Message.builder().msgText("apple").msgSummary("水果").build(),
-                Message.builder().msgText("orange").msgSummary("水果").build()));
-        int num = messageMapper.batchInsert(messages);
-        log.info("插入的数据条数： {}", num);
-    }
+//    @Test
+//    @Order(2)
+//    public void testBatchInsert() {
+//        List<Message> messages = new ArrayList<>(Arrays.asList(
+//                new Message().withMsgText("niit").withMsgSummary("学校"),
+//                new Message().withMsgText("niit").withMsgSummary("学校")));
+//        int num = messageMapper.batchInsert(messages);
+//        log.info("插入的数据条数： {}", num);
+//    }
 
     @Test
     @Order(3)
-    public void testFindAll() {
-        messageMapper.findAll().forEach(
+    public void testSelectAll() {
+        // select * from message
+        messageMapper.selectByExample(null).forEach(
                 message -> log.info("查询的数据： {}", message.toString()));
     }
 
     @Test
     @Order(4)
     public void testUpdate() {
-        Message message = Message.builder().msgId(1).msgText("computer").msgSummary("学校").build();
-        int num = messageMapper.update(message);
+        // update message set msg_text = #{msgText}, msg_summary = #{msgSummary} where msg_id = #{msgId}
+        Message message = new Message();
+        message.setMsgId(1);
+        message.setMsgText("computer");
+        message.setMsgSummary("学校");
+        int num = messageMapper.updateByPrimaryKey(message);
         log.info("更新的数据条数： {}", num);
     }
 
     @Test
     @Order(5)
     public void testUpdateText() {
-        Message message = Message.builder().msgId(2).msgText("computer").msgSummary("学校").build();
-        int num = messageMapper.updateText(message);
+        // update message set msg_text = #{msgText} where msg_id = #{msgId}
+        Message message = new Message();
+        message.setMsgText("computer");
+        MessageExample messageExample = new MessageExample();
+        messageExample.createCriteria().andMsgSummaryLike("水果" +
+                "");
+        int num = messageMapper.updateByExampleSelective(message, messageExample);
         log.info("更新Text的数据条数： {}", num);
     }
 
     @Test
     @Order(6)
-    public void testFindById() {
-        Message message = messageMapper.findById(1);
+    public void testSelectById() {
+        // select * from message where msg_id = #{msgId}
+        MessageExample messageExample = new MessageExample();
+        messageExample.createCriteria().andMsgIdEqualTo(8);
+        Message message = messageMapper.selectByExample(messageExample).get(0);
         log.info("id为1的数据： {}", message);
     }
 
     @Test
     @Order(7)
+    public void testFindByCondition() {
+        // select * from message where msg_text = #{msgText}
+        MessageExample messageExample = new MessageExample();
+        messageExample.createCriteria().andMsgSummaryEqualTo("学校");
+        Message message = messageMapper.selectByExample(messageExample).get(0);
+        log.info("id为1的数据： {}", message);
+    }
+    @Test
+    @Order(8)
     public void testDelete() {
-        int num = messageMapper.delete(1);
+        // delete from message where msg_id = #{msgId}
+        MessageExample messageExample = new MessageExample();
+        messageExample.createCriteria().andMsgIdEqualTo(2);
+        int num = messageMapper.deleteByExample(messageExample);
         log.info("删除的数据条数： {}", num);
     }
 }
