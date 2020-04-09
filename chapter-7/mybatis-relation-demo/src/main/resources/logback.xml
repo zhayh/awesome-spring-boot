@@ -64,7 +64,7 @@
     <logger name="java.sql" level="DEBUG" />
 
     <!-- 项目mapper路径, console控制台显示sql语句：STDOUT.filter.level -> debug级别-->
-    <logger name="com.mybatis.annotation.mapper" level="DEBUG" />
+    <logger name="com.spring.mybatis.xml.mapper" level="DEBUG" />
 
     <!-- 日志输出级别 -->
     <root level="INFO">

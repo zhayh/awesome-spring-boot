@@ -1,25 +1,23 @@
-package com.mybatis.annotation.mapper;
+package com.spring.batis.annotation.mapper;
 
-import com.mybatis.annotation.model.Message;
-import com.mybatis.annotation.model.Page;
-import com.mybatis.annotation.param.MessageParam;
+import com.spring.batis.annotation.model.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import javax.sound.sampled.Line;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author : zhayh
  * @date : 2020-4-2 08:45
- * @description : 测试类
+ * @description :
  */
 
 @Slf4j
@@ -49,9 +47,13 @@ public class MessageMapperTest {
 
     @Test
     @Order(3)
-    public void testSelectAll() {
-        messageMapper.selectAll().forEach(
-                message -> log.info("查询的数据： {}", message.toString()));
+    public void testSelectdAll() {
+        List<Message> msgs = messageMapper.selectAll();
+        if(msgs == null) {
+            log.error("msg为null");
+        } else {
+            msgs.forEach(msg -> log.info("查询到的记录： {}", msg));
+        }
     }
 
     @Test
@@ -65,7 +67,8 @@ public class MessageMapperTest {
     @Test
     @Order(5)
     public void testUpdateText() {
-        Message message = Message.builder().msgId(2).msgText("computer").msgSummary("学校").build();
+        Message message = Message.builder().msgId(2).msgText("computer")
+                .msgSummary("").build();
         int num = messageMapper.updateText(message);
         log.info("更新Text的数据条数： {}", num);
     }
@@ -85,35 +88,22 @@ public class MessageMapperTest {
     }
 
     @Test
-    @Order(8)
-    public void testCount() {
-        MessageParam messageParam = new MessageParam();
-        messageParam.setMsgText("");
-        messageParam.setMsgSummary("水果");
-        long count = messageMapper.getCount(messageParam);
-        log.info("count ---- , {}", count);
+    public void testSelectByCondition1() {
+        Message message = Message.builder().msgId(2).msgText("niit").msgSummary("学校").build();
+        messageMapper.selectByCondition(message).forEach(
+                msg -> log.info("查询的数据： {}", msg.toString()));
     }
 
-    @Test
-    @Order(9)
-    public void testSelectByTextAndSummary() {
-        Map<String, String> params = new HashMap<>();
-        params.put("msgText", "apple");
-        params.put("msgSummary", "院系");
-        messageMapper.selectByTextAndSummary(params)
-                .forEach(msg -> log.info(msg.toString()));
-    }
-
-    @Test
-    @Order(10)
-    public void testPage() {
-        MessageParam messageParam = new MessageParam();
-        messageParam.setMsgText("");
-        messageParam.setMsgSummary("水果");
-        messageParam.setCurrentPage(0);
-        List<Message> msgs = messageMapper.selectMessages(messageParam);
-        long count = messageMapper.getCount(messageParam);
-        Page<Message> page = new Page<>(messageParam, count, msgs);
-        log.info("page = {}", page);
-    }
+    // 演示SqlSessionFactory、SqlSession的应用
+//    @Test
+//    public void testSelectOne() throws IOException {
+//        String resource = "mybatis-config.xml";
+//        InputStream inputStream = new ClassPathResource(resource).getInputStream();
+//        SqlSessionFactory sqlSessionFactory =
+//                new SqlSessionFactoryBuilder().build(inputStream);
+//        SqlSession sqlSession = sqlSessionFactory.openSession();
+//        Message message = sqlSession.selectOne("com.spring.mybatis.xml.mapper.MessageMapper.selectById", 8);
+//        log.info(message.toString());
+//        sqlSession.close();
+//    }
 }

@@ -1,9 +1,12 @@
 package com.mybatis.annotation.mapper;
 
 import com.mybatis.annotation.model.Message;
+import com.mybatis.annotation.param.MessageParam;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : zhayh
@@ -11,15 +14,17 @@ import java.util.List;
  * @Description:
  */
 
+@Mapper
+@Repository
 public interface MessageMapper {
     @Select("select * from message")
-    @Results({
-            @Result(property = "msgText", column = "msg_text")
-    })
     List<Message> selectAll();
 
     @Select("select * from message where msg_id=#{msgId}")
-    Message selectById(Integer id);
+    Message selectById(@Param("msgId") Integer id);
+
+    @Select("select * from message where msg_text=#{msgText} or msg_summary=#{msgSummary}")
+    List<Message> selectByTextAndSummary(Map<String, String>  params);
 
     @Insert("insert into message(msg_text, msg_summary) " +
             "values(#{msgText}, #{msgSummary})")
@@ -53,6 +58,12 @@ public interface MessageMapper {
     int updateText(Message message);
 
     @Delete("delete from message where msg_id=#{msgId} ")
-    int delete(Integer id);
+    int delete(@Param("msgId") Integer id);
 
+
+    @SelectProvider(type = MessageSQL.class, method = "getCount")
+    int getCount(MessageParam messageParam);
+
+    @SelectProvider(type = MessageSQL.class, method = "selectMessages")
+    List<Message>  selectMessages(MessageParam messageParam);
 }
