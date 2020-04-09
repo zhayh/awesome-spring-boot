@@ -1,8 +1,9 @@
-package com.mybatis.annotation.mapper;
+package com.mybatis.pagehelper.mapper;
 
-import com.mybatis.annotation.model.Message;
-import com.mybatis.annotation.param.MessageParam;
+import com.mybatis.pagehelper.model.Message;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.session.RowBounds;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
  */
 
 @Mapper
+@Repository
 public interface MessageMapper {
     @Select("select * from message")
     @Results({
@@ -26,7 +28,7 @@ public interface MessageMapper {
     Message selectById(@Param("msgId") Integer id);
 
     @Select("select * from message where msg_text=#{msgText} or msg_summary=#{msgSummary}")
-    List<Message> selectByTextAndSummary(Map<String, String>  params);
+    List<Message> selectByTextAndSummary(Map<String, String> params);
 
     @Insert("insert into message(msg_text, msg_summary) " +
             "values(#{msgText}, #{msgSummary})")
@@ -62,10 +64,10 @@ public interface MessageMapper {
     @Delete("delete from message where msg_id=#{msgId} ")
     int delete(@Param("msgId") Integer id);
 
+    @Select("select * from message order by msg_id")
+    List<Message> findAllWithRowBounds(RowBounds rowBounds);
 
-    @SelectProvider(type = MessageSQL.class, method = "getCount")
-    int getCount(MessageParam messageParam);
-
-    @SelectProvider(type = MessageSQL.class, method = "selectMessages")
-    List<Message>  selectMessages(MessageParam messageParam);
+    @Select("select * from message order by msg_id")
+    List<Message> findALlWithParam(@Param("pageNum") int pageNum,
+                                  @Param("pageSize") int pageSize);
 }

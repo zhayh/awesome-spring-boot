@@ -1,8 +1,6 @@
 package com.mybatis.pagehelper.mapper;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.mybatis.pagehelper.mapper.MessageMapper;
 import com.mybatis.pagehelper.model.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.RowBounds;
@@ -89,9 +87,9 @@ public class MessageMapperTest {
     @Order(8)
     public void testfindWithRowBounds() {
         messageMapper.findAllWithRowBounds(new RowBounds(1, 3))
-                .forEach(coffee -> log.info("Page(1) Message {}", coffee));
+                .forEach(message -> log.info("Page(1) Message {}", message));
         messageMapper.findAllWithRowBounds(new RowBounds(2, 3))
-                .forEach(coffee -> log.info("Page(2) Message {}", coffee));
+                .forEach(message -> log.info("Page(2) Message {}", message));
         log.info("====================");
 
         messageMapper.findAllWithRowBounds(new RowBounds(1, 0))
@@ -105,7 +103,7 @@ public class MessageMapperTest {
         messageMapper.findALlWithParam(1, 3)
                 .forEach(coffee -> log.info("Page(1) Message {}", coffee));
         List<Message> messages = messageMapper.findALlWithParam(2, 3);
-        PageInfo page = new PageInfo<>(messages);
+        PageInfo<Message> page = new PageInfo<>(messages);
         log.info("PageInfo: {}", page);
     }
 }

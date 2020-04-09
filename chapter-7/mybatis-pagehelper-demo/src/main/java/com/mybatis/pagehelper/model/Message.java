@@ -1,4 +1,4 @@
-package com.mybatis.annotation.model;
+package com.mybatis.pagehelper.model;
 
 import lombok.Builder;
 import lombok.Data;

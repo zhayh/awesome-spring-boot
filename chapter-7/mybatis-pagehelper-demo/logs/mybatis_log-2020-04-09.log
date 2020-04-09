@@ -1,0 +1,143 @@
+2020-04-09 15:39:18.264[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mybatis.pagehelper.mapper.MessageMapperTest], using SpringBootContextLoader
+2020-04-09 15:39:18.283[main][main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.mybatis.pagehelper.mapper.MessageMapperTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-04-09 15:39:18.285[main][main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.mybatis.pagehelper.mapper.MessageMapperTest]: MessageMapperTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-04-09 15:39:18.559[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.mybatis.pagehelper.MybatisPagehelperDemoApplication for test class com.mybatis.pagehelper.mapper.MessageMapperTest
+2020-04-09 15:39:18.740[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-04-09 15:39:18.770[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5dd1c9f2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@59b38691, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2e2ff723, org.springframework.test.context.support.DirtiesContextTestExecutionListener@324a0017, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6187d1f5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2445445a, org.springframework.test.context.event.EventPublishingTestExecutionListener@7502291e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@17aad511, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@487db668, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@46944ca9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@22bac7bc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@63798ca7]
+2020-04-09 15:39:20.882[main][main] INFO  c.m.p.mapper.MessageMapperTest - Starting MessageMapperTest on ZHA-HP with PID 152112 (started by zhayh in E:\02-back end\00-teaching\02-SpringBoot\02-code\awesome-spring-boot\chapter-7\mybatis-pagehelper-demo)
+2020-04-09 15:39:20.883[main][main] INFO  c.m.p.mapper.MessageMapperTest - No active profile set, falling back to default profiles: default
+2020-04-09 15:39:21.886[main][main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-04-09 15:39:23.665[main][main] INFO  c.m.p.mapper.MessageMapperTest - Started MessageMapperTest in 4.826 seconds (JVM running for 7.64)
+2020-04-09 15:39:24.533[main][main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-04-09 15:39:26.430[main][main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-04-09 15:39:26.498[main][main] INFO  c.m.p.mapper.MessageMapperTest - 插入的数据条数： 1
+2020-04-09 15:39:26.696[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:39:26.697[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:26.699[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:39:26.699[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=6, msgText=computer, msgSummary=学校)
+2020-04-09 15:39:26.699[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=7, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:26.700[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=8, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:26.700[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=9, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:26.700[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=10, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:26.701[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=11, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:26.701[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=12, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:26.701[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=13, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:26.702[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=14, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:26.702[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=15, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:26.702[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=16, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:26.703[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=17, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:26.703[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=18, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:26.703[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=19, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:26.703[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=20, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:26.704[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=21, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.155[main][main] INFO  c.m.p.mapper.MessageMapperTest - id为1的数据： null
+2020-04-09 15:39:27.170[main][main] INFO  c.m.p.mapper.MessageMapperTest - 删除的数据条数： 0
+2020-04-09 15:39:27.185[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:39:27.185[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.186[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:39:27.190[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(2) Message Message(msgId=6, msgText=computer, msgSummary=学校)
+2020-04-09 15:39:27.190[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(2) Message Message(msgId=7, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:27.190[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(2) Message Message(msgId=8, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.191[main][main] INFO  c.m.p.mapper.MessageMapperTest - ====================
+2020-04-09 15:39:27.197[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:39:27.198[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.198[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:39:27.198[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=6, msgText=computer, msgSummary=学校)
+2020-04-09 15:39:27.198[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=7, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=8, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=9, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=10, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=11, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=12, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=13, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.199[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=14, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.200[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=15, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:27.200[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=16, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.200[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=17, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.200[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=18, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.200[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=19, msgText=apple, msgSummary=水果)
+2020-04-09 15:39:27.201[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=20, msgText=orange, msgSummary=水果)
+2020-04-09 15:39:27.201[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=21, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.201[main][main] INFO  c.m.p.mapper.MessageMapperTest - ====================
+2020-04-09 15:39:27.299[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:39:27.299[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:39:27.299[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:39:27.306[main][main] INFO  c.m.p.mapper.MessageMapperTest - PageInfo: PageInfo{pageNum=2, pageSize=3, size=3, startRow=4, endRow=6, total=19, pages=7, list=Page{count=true, pageNum=2, pageSize=3, startRow=3, endRow=6, total=19, pages=7, reasonable=true, pageSizeZero=true}[Message(msgId=6, msgText=computer, msgSummary=学校), Message(msgId=7, msgText=apple, msgSummary=水果), Message(msgId=8, msgText=orange, msgSummary=水果)], prePage=1, nextPage=3, isFirstPage=false, isLastPage=false, hasPreviousPage=true, hasNextPage=true, navigatePages=8, navigateFirstPage=1, navigateLastPage=7, navigatepageNums=[1, 2, 3, 4, 5, 6, 7]}
+2020-04-09 15:39:27.321[SpringContextShutdownHook][SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-04-09 15:39:27.338[SpringContextShutdownHook][SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-04-09 15:41:41.863[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mybatis.pagehelper.mapper.MessageMapperTest], using SpringBootContextLoader
+2020-04-09 15:41:41.889[main][main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [com.mybatis.pagehelper.mapper.MessageMapperTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-04-09 15:41:41.891[main][main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.mybatis.pagehelper.mapper.MessageMapperTest]: MessageMapperTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-04-09 15:41:42.217[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.mybatis.pagehelper.MybatisPagehelperDemoApplication for test class com.mybatis.pagehelper.mapper.MessageMapperTest
+2020-04-09 15:41:42.437[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-04-09 15:41:42.467[main][main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5dd1c9f2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@59b38691, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2e2ff723, org.springframework.test.context.support.DirtiesContextTestExecutionListener@324a0017, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6187d1f5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2445445a, org.springframework.test.context.event.EventPublishingTestExecutionListener@7502291e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@17aad511, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@487db668, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@46944ca9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@22bac7bc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@63798ca7]
+2020-04-09 15:41:43.095[main][main] INFO  c.m.p.mapper.MessageMapperTest - Starting MessageMapperTest on ZHA-HP with PID 149976 (started by zhayh in E:\02-back end\00-teaching\02-SpringBoot\02-code\awesome-spring-boot\chapter-7\mybatis-pagehelper-demo)
+2020-04-09 15:41:43.096[main][main] INFO  c.m.p.mapper.MessageMapperTest - No active profile set, falling back to default profiles: default
+2020-04-09 15:41:44.452[main][main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-04-09 15:41:46.410[main][main] INFO  c.m.p.mapper.MessageMapperTest - Started MessageMapperTest in 3.879 seconds (JVM running for 7.468)
+2020-04-09 15:41:47.199[main][main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-04-09 15:41:48.688[main][main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-04-09 15:41:48.748[main][main] INFO  c.m.p.mapper.MessageMapperTest - 插入的数据条数： 1
+2020-04-09 15:41:48.905[main][main] INFO  c.m.p.mapper.MessageMapperTest - 插入的数据条数： 2
+2020-04-09 15:41:48.979[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:41:48.979[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.980[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:41:48.980[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=6, msgText=computer, msgSummary=学校)
+2020-04-09 15:41:48.981[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=7, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:48.981[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=8, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:48.981[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=9, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.983[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=10, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:48.986[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=11, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:48.986[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=12, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:48.987[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=13, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:48.987[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=14, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.987[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=15, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:48.987[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=16, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:48.988[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=17, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.993[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=18, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.994[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=19, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:48.995[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=20, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:48.996[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=21, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.996[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=22, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:48.996[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=23, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:48.997[main][main] INFO  c.m.p.mapper.MessageMapperTest - 查询的数据： Message(msgId=24, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.026[main][main] INFO  c.m.p.mapper.MessageMapperTest - 更新的数据条数： 0
+2020-04-09 15:41:49.034[main][main] INFO  c.m.p.mapper.MessageMapperTest - 更新Text的数据条数： 0
+2020-04-09 15:41:49.049[main][main] INFO  c.m.p.mapper.MessageMapperTest - id为1的数据： null
+2020-04-09 15:41:49.057[main][main] INFO  c.m.p.mapper.MessageMapperTest - 删除的数据条数： 0
+2020-04-09 15:41:49.072[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:41:49.073[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.073[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:41:49.080[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(2) Message Message(msgId=6, msgText=computer, msgSummary=学校)
+2020-04-09 15:41:49.080[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(2) Message Message(msgId=7, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:49.081[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(2) Message Message(msgId=8, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.081[main][main] INFO  c.m.p.mapper.MessageMapperTest - ====================
+2020-04-09 15:41:49.091[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=6, msgText=computer, msgSummary=学校)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=7, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=8, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=9, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.092[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=10, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:49.093[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=11, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.093[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=12, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.093[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=13, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.093[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=14, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.093[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=15, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=16, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=17, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=18, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=19, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=20, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=21, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.094[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=22, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.095[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=23, msgText=apple, msgSummary=水果)
+2020-04-09 15:41:49.095[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=24, msgText=orange, msgSummary=水果)
+2020-04-09 15:41:49.095[main][main] INFO  c.m.p.mapper.MessageMapperTest - ====================
+2020-04-09 15:41:49.192[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=3, msgText=桃花, msgSummary=春天)
+2020-04-09 15:41:49.192[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=4, msgText=niit, msgSummary=学校)
+2020-04-09 15:41:49.192[main][main] INFO  c.m.p.mapper.MessageMapperTest - Page(1) Message Message(msgId=5, msgText=computer1, msgSummary=水果)
+2020-04-09 15:41:49.200[main][main] INFO  c.m.p.mapper.MessageMapperTest - PageInfo: PageInfo{pageNum=2, pageSize=3, size=3, startRow=4, endRow=6, total=22, pages=8, list=Page{count=true, pageNum=2, pageSize=3, startRow=3, endRow=6, total=22, pages=8, reasonable=true, pageSizeZero=true}[Message(msgId=6, msgText=computer, msgSummary=学校), Message(msgId=7, msgText=apple, msgSummary=水果), Message(msgId=8, msgText=orange, msgSummary=水果)], prePage=1, nextPage=3, isFirstPage=false, isLastPage=false, hasPreviousPage=true, hasNextPage=true, navigatePages=8, navigateFirstPage=1, navigateLastPage=8, navigatepageNums=[1, 2, 3, 4, 5, 6, 7, 8]}
+2020-04-09 15:41:49.214[SpringContextShutdownHook][SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-04-09 15:41:49.238[SpringContextShutdownHook][SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
