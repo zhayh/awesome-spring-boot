@@ -21,24 +21,27 @@
         <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
                         connectionURL="${spring.datasource.url}"
                         userId="${spring.datasource.username}"
-                        password="${spring.datasource.password}"/>
+                        password="${spring.datasource.password}">
+            <!--防止生成其他库同名表-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
 
         <!-- 数据表对应的model层  -->
-        <javaModelGenerator targetPackage="com.mybatis.generator.model.generator"
+        <javaModelGenerator targetPackage="com.mybatis.generator.model"
                             targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- sql mapper 映射配置文件 -->
-        <sqlMapGenerator targetPackage="generator"
+        <sqlMapGenerator targetPackage="."
                          targetProject="./src/main/resources/mapper">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- mybatis3中的mapper接口 -->
         <javaClientGenerator type="MIXEDMAPPER"
-                             targetPackage="com.mybatis.generator.mapper.generator"
+                             targetPackage="com.mybatis.generator.mapper"
                              targetProject="./src/main/java">
             <property name="enablePackages" value="true"/>
         </javaClientGenerator>
@@ -49,6 +52,7 @@
         <!--               enableDeleteByExample="false" enableSelectByExample="false"-->
         <!--               selectByExampleQueryId="false">-->
         <!--        </table>-->
+        <table tableName="message" domainObjectName="Message"/>
         <table tableName="users" domainObjectName="Users"/>
     </context>
 </generatorConfiguration>
