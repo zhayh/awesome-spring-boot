@@ -99,8 +99,14 @@ public class MessageRepositoryTest {
         // 分页查询全部，返回封装了的分页信息， jpa页码从0开始
         Page<Message> pageInfo = messageRepository.findAll(
                 PageRequest.of(1, 3, Sort.Direction.ASC, "msgId"));
-        log.info("分页查询结果： ");
-        pageInfo.get().forEach(System.out::print);
+        log.info("总记录数： {}", pageInfo.getTotalElements());
+        log.info("当前页记录数： {}", pageInfo.getNumberOfElements());
+        log.info("每页记录数： {}", pageInfo.getSize());
+        log.info("获取总页数： {}", pageInfo.getTotalPages());
+        log.info("查询结果： {}", pageInfo.getContent());
+        log.info("当前页（从0开始计）： {}", pageInfo.getNumber());
+        log.info("是否为首页： {}", pageInfo.isFirst());
+        log.info("是否为尾页页： {}", pageInfo.isLast());
 
         // 条件查询
         Message message = Message.builder().msgSummary("水果").build();
@@ -114,6 +120,11 @@ public class MessageRepositoryTest {
         log.info("单个查询结果： {}", optionalMessage.orElse(null));
     }
 
-    // 解析方法名创建查询
-
+    @Test
+    public void testCustomSQL() {
+        Integer num = messageRepository.insertMessage("自定义SQL", "JPA");
+        log.info("增加的数据条数： {}", num);
+        Integer updateNum = messageRepository.updateName("JPQL", 1);
+        log.info("修改的数据条数： {}", updateNum);
+    }
 }
