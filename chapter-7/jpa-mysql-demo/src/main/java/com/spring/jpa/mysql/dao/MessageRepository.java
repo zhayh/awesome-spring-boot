@@ -27,14 +27,17 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
     // JPQL查询，类似 Hibernate的 HQL语法，在接口上使用 @Query
     @Query("select msgId, msgText, msgSummary from Message where msgId = ?1")
     Message findById(int msgId);
+
     // 修改
     @Modifying
     @Transactional
     @Query(value = "update message set msg_text = ?1 where msg_id < ?2", nativeQuery = true)
     int updateName(String msgText, int msgId);
+
     // 分页查询
     @Query("select m from Message m where m.msgSummary=?1")
     public Page<Message> findByName(String msgSummary, Pageable pageable);
+
     // 插入
     @Transactional
     @Modifying
