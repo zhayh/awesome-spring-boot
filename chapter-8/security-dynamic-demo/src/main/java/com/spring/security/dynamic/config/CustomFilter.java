@@ -21,16 +21,25 @@ import java.util.List;
  * @description :
  */
 @Component
-public class MenuFilter implements FilterInvocationSecurityMetadataSource {
+public class CustomFilter implements FilterInvocationSecurityMetadataSource {
+    // URL匹配的 ant风格的对象
     private AntPathMatcher pathMatcher = new AntPathMatcher();
 
     @Autowired
     MenuService menuService;
 
+    /**
+     * 从 Filterlnvocation中提取出当前请求的 URL
+     * @param object FilterInvocation对象
+     * @return 当前请求URL 所需的角色
+     * @throws IllegalArgumentException
+     */
     @Override
-    public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
-        String requestUrl = ((FilterInvocation) o).getRequestUrl();
+    public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
+        // 从参数中提取当前请求的 URL
+        String requestUrl = ((FilterInvocation) object).getRequestUrl();
         List<Menu> allMenus = menuService.getAllMenus();
+        // 遍历 menu资源，获取当前请求的 URL所需要的角色信息并返回
         for (Menu menu : allMenus) {
             if(pathMatcher.match(menu.getPattern(), requestUrl)) {
                 return SecurityConfig.createList(menu.getRoles().stream().map(Role::getName).toArray(String[]::new));
@@ -39,13 +48,22 @@ public class MenuFilter implements FilterInvocationSecurityMetadataSource {
         return SecurityConfig.createList("ROLE_login");
     }
 
+    /**
+     * Spring Security在启动时校验相关配置是否正确，如果不需要校验，那么该方法直接返回 null即可
+     * @return 所有定义好的权限资源
+     */
     @Override
     public Collection<ConfigAttribute> getAllConfigAttributes() {
         return null;
     }
 
+    /**
+     *
+     * @param clazz
+     * @return 返回类对象是否支持校验。
+     */
     @Override
-    public boolean supports(Class<?> aClass) {
-        return false;
+    public boolean supports(Class<?> clazz) {
+        return FilterInvocation.class.isAssignableFrom(clazz);
     }
 }

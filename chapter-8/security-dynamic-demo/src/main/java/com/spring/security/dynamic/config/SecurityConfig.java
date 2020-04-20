@@ -22,9 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
     @Autowired
-    private MenuFilter menuFilter;
+    private CustomFilter customFilter;
     @Autowired
-    private MyAccessDecisionManager decisionManager;
+    private CustomAccessDecisionManager decisionManager;
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     @Override
                     public <O extends FilterSecurityInterceptor> O postProcess(O o) {
                         o.setAccessDecisionManager(decisionManager);
-                        o.setSecurityMetadataSource(menuFilter);
+                        o.setSecurityMetadataSource(customFilter);
                         return o;
                     }
                 })
