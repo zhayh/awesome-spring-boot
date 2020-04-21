@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @date : 2020-4-17 11:35
  * @description :
  */
-//@Configuration
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
@@ -43,7 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/oauth/**")
                 .authorizeRequests()
-                .antMatchers("/oauth/**").permitAll()
+                .antMatchers("/oauth/**")
+                .permitAll()
                 .and().csrf().disable();
     }
 }

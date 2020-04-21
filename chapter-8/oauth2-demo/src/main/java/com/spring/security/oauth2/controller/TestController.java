@@ -1,7 +1,6 @@
 package com.spring.security.oauth2.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class ExampleController {
+public class TestController {
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello example";
-    }
-    
     @GetMapping("/admin/hello")
-    public String hello() {
-        return "hello example";
+    public String admin() {
+        return "hello admin";
     }
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello example";
+
+    @GetMapping("/user/hello")
+    public String user() {
+        return "hello user";
     }
 }

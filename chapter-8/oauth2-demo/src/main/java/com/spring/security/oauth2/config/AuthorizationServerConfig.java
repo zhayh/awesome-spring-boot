@@ -20,8 +20,8 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
  * @date : 2020-4-17 10:24
  * @description : 授权服务器-密码模式
  */
-//@Configuration
-//@EnableAuthorizationServer
+@Configuration
+@EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     AuthenticationManager authenticationManager;
