@@ -8,8 +8,6 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.NotNull;
-
 /**
  * @author : zhayh
  * @date : 2020-4-19 14:12
@@ -34,7 +32,8 @@ public class UserService {
     }
 
     @CachePut(key = "#user.id")
-    public void updateUserById(User user) {
+    public User updateUserById(User user) {
         log.info("updateUserById >>> {}", user.getId());
+        return user;
     }
 }

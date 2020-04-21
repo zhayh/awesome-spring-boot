@@ -24,7 +24,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // 定义一个名为helloCache的缓存，key为参数，value是返回的String值
+    // 定义一个名为 helloCache的缓存，key为参数，value是返回的String值
     @RequestMapping("/hello")
     @Cacheable(value = "helloCache")
     public String hello(String name) {
