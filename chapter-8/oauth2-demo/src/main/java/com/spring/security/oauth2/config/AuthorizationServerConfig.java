@@ -39,7 +39,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 基于内存
         clients.inMemory()
-                .withClient("password") // Client账号
+                .withClient("clientapp") // Client账号
                 .secret("$2a$10$oE39aG10kB/rFu2vQeCJTu/V/v4n6DRR0f8WyXRiAYvBpmadoOBE.") // 密码 123
                 .authorizedGrantTypes("password", "refresh_token") // 密码模式
                 .accessTokenValiditySeconds(1800) // token的过期时间
