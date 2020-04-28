@@ -19,16 +19,14 @@ public class Demo02Consumer {
     JmsMessagingTemplate jmsMessagingTemplate;
 
     // 接收队列消息
-    @JmsListener(destination = "niit.queue")
-//    @JmsListener(destination = "niit.queue", containerFactory = "queueListenerFactory")
+    @JmsListener(destination = "niit.queue", containerFactory = "queueListenerFactory")
     public void receiveQueue(Message message) {
-        log.info("Consumer2接收到的队列消息: {}", message);
+        log.info("Consumer02接收到的队列消息: {}", message);
     }
 
     // 接收订阅消息
-    @JmsListener(destination = "niit.topic")
-//    @JmsListener(destination = "niit.topic", containerFactory = "topicListenerFactory")
+    @JmsListener(destination = "niit.topic", containerFactory = "topicListenerFactory")
     public void receiveTopic(Message message) {
-        log.info("Consumer2接收到的订阅消息: {}", message);
+        log.info("Consumer02接收到的订阅消息: {}", message);
     }
 }

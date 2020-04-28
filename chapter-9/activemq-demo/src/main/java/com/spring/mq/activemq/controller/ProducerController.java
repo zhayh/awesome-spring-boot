@@ -7,10 +7,12 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.jms.Queue;
 import javax.jms.Topic;
+import java.util.Date;
 
 /**
  * @author : zhayh
@@ -28,14 +30,24 @@ public class ProducerController {
     Topic topic;
 
     // 发送队列消息
-    @GetMapping("/sendQueue")
-    public void sendQueue(Message message) {
+    @GetMapping("/queue")
+    public String sendQueue() {
+        Message message = new Message();
+        message.setId((int) (System.currentTimeMillis() / 1000));
+        message.setContent("Test queue message");
+        message.setSendDate(new Date());
         jmsMessagingTemplate.convertAndSend(this.queue, message);
+        return "发送成功";
     }
 
     // 发送订阅消息
-    @GetMapping("/sendTopic")
-    public void sendTopic(Message message) {
+    @GetMapping("/topic")
+    public String sendTopic() {
+        Message message = new Message();
+        message.setId((int) (System.currentTimeMillis() / 1000));
+        message.setContent("Test queue message");
+        message.setSendDate(new Date());
         jmsMessagingTemplate.convertAndSend(this.topic, message);
+        return "发送成功";
     }
 }

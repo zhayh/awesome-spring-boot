@@ -16,14 +16,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class Demo01Consumer {
     // 接收队列消息
-    @JmsListener(destination = "niit.queue")
+    @JmsListener(destination = "niit.queue", containerFactory = "queueListenerFactory")
     public void receiveQueue(Message message) {
-        log.info("Consumer1接收到的队列消息: {}", message);
+        log.info("Consumer01接收到的队列消息: {}", message);
     }
 
     // 接收订阅消息
-    @JmsListener(destination = "niit.topic")
+    @JmsListener(destination = "niit.topic", containerFactory = "topicListenerFactory")
     public void receiveTopic(Message message) {
-        log.info("Consumer1接收到的订阅消息: {}", message);
+        log.info("Consumer01接收到的订阅消息: {}", message);
     }
+
 }

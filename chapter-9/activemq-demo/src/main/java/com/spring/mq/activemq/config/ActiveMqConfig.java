@@ -16,10 +16,10 @@ import javax.jms.ConnectionFactory;
  * @description : 配置同时支持 Queue和 Topic
  */
 
-//@Configuration
-//@EnableJms
+@Configuration
+@EnableJms
 public class ActiveMqConfig {
-    @Bean
+    @Bean("queueListenerFactory")
     public JmsListenerContainerFactory<?> queueListenerFactory(
             ActiveMQConnectionFactory connectionFactory){
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
@@ -27,7 +27,7 @@ public class ActiveMqConfig {
         factory.setPubSubDomain(false);
         return factory;
     }
-    @Bean
+    @Bean("topicListenerFactory")
     public JmsListenerContainerFactory<?> topicListenerFactory(
             ActiveMQConnectionFactory  connectionFactory) {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
