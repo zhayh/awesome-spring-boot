@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author : zhayh
  * @date : 2020-4-24 19:42
- * @description :
+ * @description : 消息消费者
  */
 
 @Slf4j

@@ -8,13 +8,12 @@ import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 /**
  * @author : zhayh
  * @date : 2020-4-24 19:35
  * @description :
  */
-@Configuration
+//@Configuration
 public class RabbitTopicConfig {
     @Bean
     Queue marketingQueue() {

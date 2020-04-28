@@ -8,7 +8,6 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 /**
  * @author : zhayh
  * @date : 2020-4-24 19:35

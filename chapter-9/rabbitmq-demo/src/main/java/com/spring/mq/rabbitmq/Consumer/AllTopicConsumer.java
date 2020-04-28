@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@RabbitListener(queues = Message.ALL_QUEUE)
+//@RabbitListener(queues = Message.ALL_QUEUE)
 public class AllTopicConsumer {
     @RabbitHandler
     public void onMessage(Message message) {

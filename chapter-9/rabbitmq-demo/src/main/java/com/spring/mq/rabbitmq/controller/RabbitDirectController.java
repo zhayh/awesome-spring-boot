@@ -14,7 +14,10 @@ import java.util.Date;
  * @author : zhayh
  * @date : 2020-4-25 13:49
  * @description :
- * request url: http://localhost:8080/rabbitmq/direct/producer?exchangeName=direct-exchange&routingKey=market&messageData=HelloAdminDirect
+ * request url:
+ * http://localhost:8080/rabbitmq/direct/producer?exchangeName=direct-exchange&routingKey=admin&messageData=HelloAdminDirect
+ * http://localhost:8080/rabbitmq/direct/producer?exchangeName=direct-exchange&routingKey=market&messageData=HellomarketDirect
+ * http://localhost:8080/rabbitmq/direct/producer?exchangeName=direct-exchange&routingKey=finance&messageData=HellofinanceDirect
  */
 
 @RestController

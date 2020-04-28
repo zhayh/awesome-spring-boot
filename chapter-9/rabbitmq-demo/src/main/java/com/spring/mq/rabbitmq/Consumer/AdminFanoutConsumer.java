@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@RabbitListener(queues = Message.ADMIN_QUEUE)
+//@RabbitListener(queues = Message.ADMIN_QUEUE)
 public class AdminFanoutConsumer {
     @RabbitHandler
     public void onMessage(Message message) {
