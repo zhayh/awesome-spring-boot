@@ -13,6 +13,7 @@ public class TestAnnotation {
     public static void main(String[] args) {
         // 初始化Spring容器ApplicationContext
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigAnnotation.class);
+        // 获取Bean对象
         TestController controller = context.getBean(TestController.class);
         controller.save();
     }

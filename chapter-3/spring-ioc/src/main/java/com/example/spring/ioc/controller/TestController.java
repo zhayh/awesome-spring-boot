@@ -12,11 +12,24 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class TestController {
+    // 属性注入（不推荐）
+    // @Autowired
+    private final TestService testService;
+
+    // 构造方法注入（推荐）
     @Autowired
-    private TestService testService;
+    public TestController(TestService testService) {
+        this.testService = testService;
+    }
 
     public void save() {
         testService.save();
         System.out.println("testController save");
     }
+
+    // set方法注入
+//    @Autowired
+//    public void setTestService(TestService testService) {
+//        this.testService = testService;
+//    }
 }

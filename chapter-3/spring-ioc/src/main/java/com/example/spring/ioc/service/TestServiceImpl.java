@@ -12,9 +12,10 @@ import javax.annotation.Resource;
  */
 
 @Service("testService")
-public class TestServiceImpl implements TestService{
+public class TestServiceImpl implements TestService {
     @Resource(name = "testDao")
     private TestDao testDao;
+
     @Override
     public void save() {
         testDao.save();
