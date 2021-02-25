@@ -1,3 +1,0 @@
-# Auto Configure
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-soft.spring.bean.ioc.annotation.auto.configuration.HelloWorldAutoConfiguration
