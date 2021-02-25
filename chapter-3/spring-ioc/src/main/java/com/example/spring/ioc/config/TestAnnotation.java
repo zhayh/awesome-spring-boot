@@ -1,4 +1,4 @@
-package com.example.spring.ioc;
+package com.example.spring.ioc.config;
 
 import com.example.spring.ioc.controller.TestController;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
