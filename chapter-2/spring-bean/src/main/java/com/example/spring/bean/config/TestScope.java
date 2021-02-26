@@ -24,6 +24,6 @@ public class TestScope {
         System.out.println(ps1);
         System.out.println(ps2);
 
-
+        context.close();
     }
 }
