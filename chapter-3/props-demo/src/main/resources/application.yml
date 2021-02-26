@@ -1,0 +1,30 @@
+# 配置Tomcat属性
+server:
+  port: 8081
+  error:
+    path: /error
+  servlet:
+    context-path: /props
+    session:
+      timeout: 30m
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 200
+    basedir: C:/apache-tomcat-9.0.30/temp
+
+# 配置属性
+book:
+  name: 三国演义
+  author: 罗贯中
+  price: 30
+  description: ${book.name}的价格是${book.price}
+  fans:
+    - aa
+    - bb
+    - cc
+  rank:
+    january: 1
+    february: 2
+    march: 3
+#  fans: [aa, bb, cc]
+#  rank: {january:1, february:1, march:2}
