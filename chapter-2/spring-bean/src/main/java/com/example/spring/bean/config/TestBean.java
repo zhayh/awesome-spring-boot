@@ -1,6 +1,6 @@
 package com.example.spring.bean.config;
 
-import com.example.spring.bean.DemoBean;
+import com.example.spring.bean.instance.DemoBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

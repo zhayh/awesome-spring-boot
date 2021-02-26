@@ -1,4 +1,4 @@
-package com.example.spring.bean;
+package com.example.spring.bean.instance;
 
 /**
  * @author : zhayh

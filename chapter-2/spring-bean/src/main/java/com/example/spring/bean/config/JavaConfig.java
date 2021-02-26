@@ -1,8 +1,8 @@
 package com.example.spring.bean.config;
 
-import com.example.spring.bean.DemoBean;
-import com.example.spring.bean.DemoBeanInstanceFactory;
-import com.example.spring.bean.DemoBeanStaticFactory;
+import com.example.spring.bean.instance.DemoBean;
+import com.example.spring.bean.instance.DemoBeanInstanceFactory;
+import com.example.spring.bean.instance.DemoBeanStaticFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
