@@ -1,8 +1,6 @@
-package com.example.spring.json.controller;
+package com.example.spring.json.article;
 
 import com.example.spring.json.ResponseEntity;
-import com.example.spring.json.model.Article;
-import com.example.spring.json.model.Reader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

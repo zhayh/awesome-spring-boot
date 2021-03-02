@@ -1,4 +1,4 @@
-package com.example.spring.json.model;
+package com.example.spring.json.article;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

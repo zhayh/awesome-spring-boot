@@ -1,7 +1,7 @@
 package com.example.spring.json;
 
-import com.example.spring.json.model.Article;
-import com.example.spring.json.model.Reader;
+import com.example.spring.json.article.Article;
+import com.example.spring.json.article.Reader;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
