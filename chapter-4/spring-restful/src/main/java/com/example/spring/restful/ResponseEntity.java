@@ -1,4 +1,4 @@
-package com.example.spring.restful.model;
+package com.example.spring.restful;
 
 import lombok.Data;
 
