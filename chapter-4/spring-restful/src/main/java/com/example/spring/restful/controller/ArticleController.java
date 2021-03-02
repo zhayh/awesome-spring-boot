@@ -1,7 +1,7 @@
 package com.example.spring.restful.controller;
 
-import com.example.spring.restful.model.Article;
 import com.example.spring.restful.ResponseEntity;
+import com.example.spring.restful.model.Article;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +32,6 @@ public class ArticleController {
 
         return ResponseEntity.success(article);
     }
-
 
     // 增加一篇Article ，使用POST方法，RequestBody方式接收参数
     // @RequestMapping(value = "/articles", method = RequestMethod.POST)
