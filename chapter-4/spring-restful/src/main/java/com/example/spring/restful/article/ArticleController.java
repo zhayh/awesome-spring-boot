@@ -1,7 +1,6 @@
-package com.example.spring.restful.controller;
+package com.example.spring.restful.article;
 
 import com.example.spring.restful.ResponseEntity;
-import com.example.spring.restful.model.Article;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

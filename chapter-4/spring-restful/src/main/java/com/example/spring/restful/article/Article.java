@@ -1,4 +1,4 @@
-package com.example.spring.restful.model;
+package com.example.spring.restful.article;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
