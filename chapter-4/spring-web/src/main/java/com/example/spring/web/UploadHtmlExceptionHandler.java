@@ -15,8 +15,8 @@ import java.io.PrintWriter;
  * @description :
  */
 
-@ControllerAdvice
-public class CustomExceptionHandler {
+//@ControllerAdvice
+public class UploadHtmlExceptionHandler {
 //    @ExceptionHandler(MaxUploadSizeExceededException.class)
 //    public void handleMaxSizeException(MaxUploadSizeExceededException e,
 //                                       HttpServletResponse response) throws IOException {
