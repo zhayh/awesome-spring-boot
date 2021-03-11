@@ -6,6 +6,6 @@ package com.example.spring.ioc.dao;
  * @Description:
  */
 
-public interface TestDao {
+public interface UserDao {
     void save();
 }

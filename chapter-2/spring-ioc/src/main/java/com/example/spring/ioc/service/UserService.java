@@ -6,6 +6,6 @@ package com.example.spring.ioc.service;
  * @Description:
  */
 
-public interface TestService {
+public interface UserService {
     void save();
 }

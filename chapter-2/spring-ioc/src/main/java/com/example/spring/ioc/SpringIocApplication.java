@@ -1,16 +1,16 @@
 package com.example.spring.ioc;
 
-import com.example.spring.ioc.controller.TestController;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.spring.ioc.controller.UserController;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import javax.annotation.Resource;
 
 @SpringBootApplication
 public class SpringIocApplication implements CommandLineRunner {
-    @Autowired
-    private TestController testController;
+    @Resource
+    private UserController userController;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringIocApplication.class, args);
@@ -18,6 +18,6 @@ public class SpringIocApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        testController.save();
+        userController.save();
     }
 }
