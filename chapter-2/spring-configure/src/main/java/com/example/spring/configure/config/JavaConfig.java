@@ -1,8 +1,11 @@
 package com.example.spring.configure.config;
 
-import com.example.spring.configure.controller.TestController;
-import com.example.spring.configure.dao.TestDao;
-import com.example.spring.configure.service.TestService;
+import com.example.spring.configure.controller.UserController;
+import com.example.spring.configure.dao.UserDao;
+import com.example.spring.configure.dao.UserDaoImpl;
+import com.example.spring.configure.dao.UserDaoMysqlImpl;
+import com.example.spring.configure.service.UserService;
+import com.example.spring.configure.service.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,21 +18,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class JavaConfig {
     @Bean
-    public TestDao getTestDao() {
-        return new TestDao();
+    public UserDao userDao() {
+        return new UserDaoImpl();
     }
 
     @Bean
-    public TestService getTestService() {
-        TestService testService = new TestService();
-        testService.setTestDao(getTestDao());
-        return testService;
+    public UserDao userDaoMysql() {
+        return new UserDaoMysqlImpl();
+    }
+    @Bean
+    public UserService userService() {
+        UserService userService = new UserServiceImpl();
+        // 将userDao注入到userService中
+        userService.setUserDao(userDaoMysql());
+        return userService;
     }
 
     @Bean
-    public TestController getTestController() {
-        TestController controller = new TestController();
-        controller.setTestService(getTestService());
+    public UserController userController() {
+        UserController controller = new UserController();
+        // 将userService注入到userController中
+        controller.setUserService(userService());
         return controller;
     }
 }
