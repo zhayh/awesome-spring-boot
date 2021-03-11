@@ -6,7 +6,7 @@ package com.example.spring.aspectj.dao;
  * @Description:
  */
 
-public interface TestDao {
+public interface UserDao {
     void save();
     void modify();
     void delete();

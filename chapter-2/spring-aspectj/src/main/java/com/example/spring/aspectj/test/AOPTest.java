@@ -1,6 +1,7 @@
-package com.example.spring.aspectj.config;
+package com.example.spring.aspectj.test;
 
-import com.example.spring.aspectj.dao.TestDao;
+import com.example.spring.aspectj.config.JavaConfig;
+import com.example.spring.aspectj.dao.UserDao;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -12,12 +13,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AOPTest {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
-        TestDao testDao = context.getBean(TestDao.class);
-        testDao.save();
+        UserDao userDao = context.getBean(UserDao.class);
+        userDao.save();
         System.out.println("=====================");
-        testDao.modify();
+        userDao.modify();
         System.out.println("=====================");
-        testDao.delete();
+        userDao.delete();
         context.close();
     }
 }
