@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,12 @@
     <title>first spring mvc</title>
 </head>
 <body>
-    <h1 th:text="${info}">Hello World</h1>
+    <h1>The View page</h1>
+    <div>
+        <ul>
+            <li>info:[[${info}]]</li>
+            <li>state:[[${state}]]</li>
+        </ul>
+    </div>
 </body>
 </html>
