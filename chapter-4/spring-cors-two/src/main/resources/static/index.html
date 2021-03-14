@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试跨域访问</title>
+</head>
+<body>
+    <h2>前台系统</h2>
+    <p id="info"></p>
+</body>
+    <script src="/webjars/jquery/3.1.0/jquery.min.js" ></script>
+    <script>
+        $.ajax({
+            url: 'http://localhost:8080/hello',
+            type: 'GET',
+            success: function(data) {
+                $('#info').html("跨域访问成功：" + data)
+            },
+            error: function () {
+                $('#info').html("跨域失败")
+            }
+        })
+    </script>
+</html>
