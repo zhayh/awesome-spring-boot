@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>4xx异常</title>
+</head>
+<body>
+    <h1>404异常</h1>
+    <div>path: <b th:text="${path}"></b></div>
+    <div>error: <b th:text="${error}"></b></div>
+    <div>message: <b th:text="${message}"></b></div>
+    <div>time: <b th:text="${#dates.format(timestamp,'yyyy-MM-dd')}"></b></div>
+    <div>status: <b th:text="${status}"></b></div>
+</body>
+</html>
