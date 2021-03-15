@@ -18,7 +18,7 @@ public class JdkProxy implements InvocationHandler {
         this.userDao = userDao;
         // 类加载器
         ClassLoader classLoader = JdkProxy.class.getClassLoader();
-        // 被代理对象实训的所有接口
+        // 被代理对象实现的所有接口
         Class<?>[] clazz = userDao.getClass().getInterfaces();
         // 使用代理类进行增强，返回代理后的对象
         return Proxy.newProxyInstance(classLoader, clazz, this);
@@ -38,6 +38,7 @@ public class JdkProxy implements InvocationHandler {
         MyAspect myAspect = new MyAspect();
         // 前置增强
         myAspect.checkPermissions();
+        myAspect.log();
         // 在目标类调用方法，并传入参数
         Object obj = method.invoke(userDao, args);
         // 后置增强
