@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
@@ -23,6 +24,7 @@ public class Article {
     @NotNull(message = "作者信息不能为空")
     @JsonProperty("author")
     private String author;
+    @Length(max = 12, message = "标题在100个字符以内")
     private String title;
 
     @NotEmpty(message = "文章内容不能为空")
