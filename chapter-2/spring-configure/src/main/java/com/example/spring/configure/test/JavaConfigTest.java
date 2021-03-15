@@ -10,13 +10,14 @@ import javax.sql.DataSource;
 /**
  * @author : zhayh
  * @date : 2021-2-25 18:18
- * @description :
+ * @description : Spring获取bean的方式
  */
 
 public class JavaConfigTest {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
-        UserController controller = context.getBean(UserController.class);
+//        UserController controller = context.getBean(UserController.class);
+        UserController controller = (UserController) context.getBean("userController");
         controller.save();
 
         DataSource dataSource = (DataSource) context.getBean("dataSource");
