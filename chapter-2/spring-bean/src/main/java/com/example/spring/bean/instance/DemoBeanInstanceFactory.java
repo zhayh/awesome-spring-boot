@@ -7,7 +7,8 @@ package com.example.spring.bean.instance;
  */
 
 public class DemoBeanInstanceFactory {
+
     public DemoBean createDemoBeanInstance() {
-        return new DemoBean("调用实例工厂方法实例化Bean");
+        return new DemoBean(" 调用实例工厂方法实例化Bean");
     }
 }

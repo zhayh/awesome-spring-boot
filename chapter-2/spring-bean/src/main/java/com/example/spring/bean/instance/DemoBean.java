@@ -10,7 +10,7 @@ public class DemoBean {
     private String message;
 
     public DemoBean() {
-        this.message = "构造方法实例化DemoBean";
+        this.message = " 构造方法实例化DemoBean";
     }
 
     public DemoBean(String message) {

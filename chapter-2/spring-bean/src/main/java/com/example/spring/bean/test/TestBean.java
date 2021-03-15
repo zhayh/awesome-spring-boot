@@ -1,5 +1,6 @@
-package com.example.spring.bean.config;
+package com.example.spring.bean.test;
 
+import com.example.spring.bean.config.BeanConfig;
 import com.example.spring.bean.instance.DemoBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class TestBean {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(JavaConfig.class);
+                new AnnotationConfigApplicationContext(BeanConfig.class);
         DemoBean bean1 = (DemoBean) context.getBean("demoBean");
         System.out.println(bean1 + bean1.getMessage());
 

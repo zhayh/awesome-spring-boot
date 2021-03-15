@@ -1,5 +1,6 @@
-package com.example.spring.bean.config;
+package com.example.spring.bean.test;
 
+import com.example.spring.bean.config.ScopeConfig;
 import com.example.spring.bean.service.PrototypeService;
 import com.example.spring.bean.service.SingletonService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -1,6 +1,6 @@
 package com.example.spring.bean.config;
 
-import com.example.spring.bean.service.TestService;
+import com.example.spring.bean.service.DemoService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class ScopeConfig {
 
     // 设置初始化和销毁方法
     @Bean(initMethod = "initService", destroyMethod = "destroyService")
-    public TestService getService() {
-        return new TestService();
+    public DemoService getService() {
+        return new DemoService();
     }
 }

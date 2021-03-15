@@ -7,13 +7,13 @@ package com.example.spring.bean.service;
  */
 
 //@Service
-public class TestService {
+public class DemoService {
 //    @PostConstruct
     public void initService() {
         System.out.println("initMethod");
     }
 
-    public TestService() {
+    public DemoService() {
         System.out.println("构造方法");
     }
 

@@ -7,7 +7,7 @@ package com.example.spring.bean.instance;
  */
 
 public class DemoBeanStaticFactory {
-    private static DemoBean instance = new DemoBean("调用静态工厂方法实例化Bean");
+    private static DemoBean instance = new DemoBean(" 调用静态工厂方法实例化Bean");
 
     public static DemoBean createInstance() {
         return instance;

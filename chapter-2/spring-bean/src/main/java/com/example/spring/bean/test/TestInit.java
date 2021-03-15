@@ -1,6 +1,7 @@
-package com.example.spring.bean.config;
+package com.example.spring.bean.test;
 
-import com.example.spring.bean.service.TestService;
+import com.example.spring.bean.config.ScopeConfig;
+import com.example.spring.bean.service.DemoService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -13,7 +14,7 @@ public class TestInit {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(ScopeConfig.class);
-        TestService service = context.getBean(TestService.class);
+        DemoService service = context.getBean(DemoService.class);
         System.out.println(service);
 
         context.close();
