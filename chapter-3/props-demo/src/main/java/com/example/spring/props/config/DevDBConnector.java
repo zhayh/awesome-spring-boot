@@ -1,4 +1,4 @@
-package edu.niit.props.config;
+package com.example.spring.props.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;

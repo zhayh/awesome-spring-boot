@@ -1,4 +1,4 @@
-package edu.niit.props.controller;
+package com.example.spring.props.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,16 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@PropertySource({"test.properties"})
-public class TestPropertyController {
-    private Log log = LogFactory.getLog(TestPropertyController.class);
+@PropertySource({"classpath:test.properties"})
+public class PropertyController {
+    private Log log = LogFactory.getLog(PropertyController.class);
 
     @Value("${my.msg}")
     private String myMsg;
 
     @RequestMapping("/testProperty")
     public String test() {
-        log.info("测试日志");
-        return "其它配置文件test.properties: " + myMsg;
+        log.debug("测试debug日志");
+        log.info("测试info日志");
+        return "其它配置文件: " + myMsg;
     }
 }

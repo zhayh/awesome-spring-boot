@@ -1,9 +1,10 @@
-package edu.niit.props.controller;
+package com.example.spring.props.controller;
 
-import edu.niit.props.model.Book;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.spring.props.vo.Book;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author : zhayh
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookController {
-    @Autowired
+    @Resource
     private Book book;
 
     @GetMapping("/book")

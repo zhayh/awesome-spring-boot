@@ -8,7 +8,7 @@
         <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>edu.niit</groupId>
+    <groupId>com.example</groupId>
     <artifactId>props-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>props-demo</name>
@@ -55,6 +55,12 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- 解决 spring boot Configuration Annotation Processor not configured -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

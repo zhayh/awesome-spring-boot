@@ -1,9 +1,10 @@
-package edu.niit.props.controller;
+package com.example.spring.props.controller;
 
-import edu.niit.props.config.DBConnector;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.spring.props.config.DBConnector;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author : zhayh
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @description :
  */
 @RestController
-public class DBController  {
-    @Autowired
+public class DBController {
+    @Resource
     private DBConnector dbConnector;
 
     @GetMapping("/showDB")

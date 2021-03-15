@@ -1,4 +1,4 @@
-package edu.niit.props.config;
+package com.example.spring.props.config;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
@@ -33,11 +33,17 @@ public class TomcatHttpConfig {
         return factory;
     }
 
+    /**
+     * 设置http访问的端口的重定向
+     * @return
+     */
     private Connector createTomcatConnector() {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
+        // 设置Connector监听的http的默认端口号
         connector.setPort(8080);
         connector.setSecure(false);
+        //监听到http的端口号后转向到的https的端口号,也就是项目配置的port
         connector.setRedirectPort(8081);
         return connector;
     }

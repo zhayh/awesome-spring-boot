@@ -1,4 +1,4 @@
-package edu.niit.props;
+package com.example.spring.props;
 
 /**
  * Application类的单元测试务必与Application类在同一个包下，否则会出现Bean不能自动装配的问题
