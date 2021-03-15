@@ -24,8 +24,10 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/");
     }
 
-    // 优先级高于application.properties
-    // @Bean
+    /**
+     * 设置上传文件的上限，优先级高于application.properties
+     * @return
+     */
     public MultipartConfigElement configUploadSize() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
         //单个文件最大

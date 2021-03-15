@@ -8,26 +8,23 @@ package com.example.spring.restful.model;
 
 public enum ResponseCode {
     //系统基本码
-    SUCCESS(200, "请求响应成功!"),
-    USER_INPUT_ERROR(400,"用户输入异常"),
-    SERVER_ERROR(500,"系统服务异常"),
-    NOT_FOUND_ERROR (404,"没找到"),
-    OTHER_ERROR(999,"其他未知异常"),
-    ;
+    SER_INPUT_ERROR(400, "输入的数据错误或您没有权限访问资源！"),
+    SYSTEM_ERROR(500, "系统出现异常，请您稍后再试或联系管理员！"),
+    OTHER_ERROR(999, "系统出现未知异常，请联系管理员！");
 
-    private int code;
-    private String msg;
-
-    ResponseCode(int code, String msg) {
+    ResponseCode(int code, String desc) {
         this.code = code;
-        this.msg = msg;
+        this.desc = desc;
+    }
+
+    private String desc;//异常类型中文描述
+    private int code;   //code
+
+    public String getDesc() {
+        return desc;
     }
 
     public int getCode() {
         return code;
-    }
-
-    public String getMsg() {
-        return msg;
     }
 }
