@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author : zhayh
  * @date : 2020-2-28 15:10
- * @description :
+ * @description : tomcat的http请求重定向到https请求
  */
 
 @Configuration

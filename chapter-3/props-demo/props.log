@@ -1,0 +1,5 @@
+2021-03-15 15:43:58.797  INFO 25464 --- [restartedMain] c.e.spring.props.PropsDemoApplication    : Starting PropsDemoApplication using Java 11.0.2 on ZHA-HP with PID 25464 (E:\02-back end\00-teaching\02-SpringBoot\02-code\awesome-spring-boot\chapter-3\props-demo\target\classes started by zhayh in E:\02-back end\00-teaching\02-SpringBoot\02-code\awesome-spring-boot\chapter-3\props-demo)
+2021-03-15 15:43:58.807  INFO 25464 --- [restartedMain] c.e.spring.props.PropsDemoApplication    : The following profiles are active: dev
+2021-03-15 15:44:01.809  INFO 25464 --- [restartedMain] c.e.spring.props.PropsDemoApplication    : Started PropsDemoApplication in 4.038 seconds (JVM running for 6.766)
+2021-03-15 16:07:46.051 DEBUG 25464 --- [https-jsse-nio-8081-exec-1] c.e.s.p.controller.PropertyController    : 测试debug日志
+2021-03-15 16:07:46.054  INFO 25464 --- [https-jsse-nio-8081-exec-1] c.e.s.p.controller.PropertyController    : 测试info日志
